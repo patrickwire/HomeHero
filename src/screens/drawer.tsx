@@ -15,8 +15,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
+import {Link} from "react-router-dom";
+import {auth} from "firebase";
 
 const drawerWidth = 240;
 interface Props{}
@@ -139,21 +142,33 @@ export const PersistentDrawerRight=(props:Props)=> {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          <Link to="/login">
+            <ListItem button key="Login">
+              <ListItemIcon><ExitToAppIcon /></ListItemIcon>
+              <ListItemText primary="Login" />
             </ListItem>
-          ))}
+          </Link>
+           <Link onClick={() => auth().signOut()} to="/logout">
+            <ListItem button key="Logout">
+              <ListItemIcon><ExitToAppIcon /></ListItemIcon>
+              <ListItemText primary="Logout" />
+            </ListItem>
+          </Link>
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          <Link to="/">
+            <ListItem button key="Home">
+              <ListItemIcon><HomeIcon /></ListItemIcon>
+              <ListItemText primary="Home" />
             </ListItem>
-          ))}
+          </Link>
+          <Link to="/about">
+            <ListItem button key="About">
+              <ListItemIcon><InfoIcon /></ListItemIcon>
+              <ListItemText primary="About" />
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
     </div>

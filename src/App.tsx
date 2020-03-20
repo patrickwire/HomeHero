@@ -36,25 +36,8 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={userAuth}>
         <Router>
+          <PersistentDrawerRight/>
           <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link onClick={() => auth().signOut()} to="/logout">
-                    Logout
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-              </ul>
-            </nav>
 
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -76,7 +59,7 @@ function App() {
           </div>
         </Router>
 
-        <PersistentDrawerRight/>
+
 
       </AuthContext.Provider>
     </div>
