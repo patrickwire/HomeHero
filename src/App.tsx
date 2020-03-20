@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { firebaseConfig } from './firebase.config';
+firebaseConfig
 function App() {
   return (
     <div className="App">
