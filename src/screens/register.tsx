@@ -2,6 +2,7 @@ import React from "react";
 import { AuthContext } from "../App";
 import { useHistory, Link } from "react-router-dom";
 import { auth, firestore } from "firebase";
+import { TextField, Button } from "@material-ui/core";
 
 
 
@@ -32,26 +33,35 @@ export const Register = () => {
   return (
     <div>
       <h1>Register</h1>
-      <p>{userAuth.uid}</p>
-      <input
+    
+      <TextField
+        id="outlined-basic"
+        label="username"
+        variant="outlined"
         onChange={e => setUsername(e.target.value)}
-        placeholder="username"
+      
         value={username}
-      ></input>
-      <input
+      /> <br /> <br />
+       <TextField
+        id="outlined-basic"
+        label="email"
+        variant="outlined"
         type="email"
         onChange={e => setEmail(e.target.value)}
-        placeholder="email"
+     
         value={email}
-      ></input>
-      <input
+      /> <br /> <br />
+       <TextField
+        id="outlined-basic"
+        label="password"
+        variant="outlined"
         type="password"
         onChange={e => setPassword(e.target.value)}
         value={password}
-        placeholder="password"
-      ></input>
-      <button onClick={onRegister}>Register</button>
-      <Link to="/login">Login</Link>
+        
+      /> <br /> <br />
+      <Button  variant="contained" color="secondary"  onClick={onRegister}>Register</Button>
+      <br /><Link to="/login">Login</Link>
     </div>
   );
 };
