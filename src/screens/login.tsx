@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { auth } from 'firebase';
+import { AuthContext } from '../App';
 
 
 interface Props{}
@@ -8,10 +9,8 @@ export const Login=(props:Props)=> {
    
     const [email,setEmail]=React.useState("")
     const [password,setPassword]=React.useState("")
-    const [uid,setUid]=React.useState("")
-    auth().onAuthStateChanged(()=>{
-      setUid(auth().currentUser?.uid||"")
-    })
+    const userAuth = React.useContext(AuthContext);
+   
     const onLogin=()=>{
      try {
       auth().setPersistence(auth.Auth.Persistence.LOCAL)
@@ -24,7 +23,7 @@ export const Login=(props:Props)=> {
       
     }
     return (<div><h1>Login</h1>
-    <p>{uid}</p>
+    <p>{userAuth.uid}</p>
     <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="email" value={email}></input>
     <input type="password" onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="password"></input>
     <button onClick={onLogin}>Login</button>
