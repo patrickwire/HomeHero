@@ -2,6 +2,7 @@ import * as React from 'react';
 import { auth } from 'firebase';
 import { AuthContext } from '../App';
 import { Redirect, useHistory, Link } from 'react-router-dom';
+import { TextField, Button } from '@material-ui/core';
 
 
 interface Props{}
@@ -24,11 +25,11 @@ export const Login=(props:Props)=> {
       
     }
     return (<div><h1>Login</h1>
-    <p>{userAuth.uid}</p>
-    <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="email" value={email}></input>
-    <input type="password" onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="password"></input>
-    <button onClick={onLogin}>Login</button>
-    <Link to="/register">Register</Link>
-    <Link to="/resetPassword">Reset Password</Link>
+    
+    <TextField id="outlined-basic" label="email" variant="outlined" type="email" onChange={(e)=>setEmail(e.target.value)}  value={email}/>
+    <br/><br/><TextField id="outlined-basic" label="password" variant="outlined" type="password" onChange={(e)=>setPassword(e.target.value)} value={password} />
+    <br/><br/><Button variant="contained" color="secondary" onClick={onLogin}>Login</Button>
+    <br></br><Link to="/register">Register</Link>
+    <br></br><Link to="/resetPassword">Reset Password</Link>
     </div>);
   }
