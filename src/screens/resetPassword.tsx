@@ -35,7 +35,7 @@ export const ResetPassword = (props: Props) => {
 
       <TextField
         id="outlined-basic"
-        label="password"
+        label="email"
         variant="outlined"
         type="email"
         onChange={e => setEmail(e.target.value)}
@@ -43,8 +43,12 @@ export const ResetPassword = (props: Props) => {
         value={email}
      /> <br /> <br />
       <Button variant="contained" color="secondary" onClick={onResetPassword}>
-        ResetPassword
+        Reset Password
       </Button>
+        <br />
+      <div className="RegisterLink">
+        <Link className="Link" to="/login">Back to Login</Link>
+      </div>
     </div>
   );
 };

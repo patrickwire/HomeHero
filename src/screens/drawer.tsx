@@ -161,12 +161,15 @@ export const PersistentDrawerRight=(props:Props)=> {
         </List>
         <Divider />
         <List>
+          {userAuth.loggedIn&&<div>
           <Link className="Link" to="/">
             <ListItem button key="Home">
               <ListItemIcon><HomeIcon /></ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
           </Link>
+          </div>}
+
           <Link className="Link" to="/about">
             <ListItem button key="About">
               <ListItemIcon><InfoIcon /></ListItemIcon>

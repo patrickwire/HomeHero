@@ -48,9 +48,10 @@ export const Login = (props: Props) => {
         Login
       </Button>
       <br></br>
-      <Link to="/register">Register</Link>
-      <br></br>
-      <Link to="/resetPassword">Reset Password</Link>
+        <div className="RegisterLink">
+          <Link className="Link" to="/register">Register</Link><b>  |  </b>
+          <Link className="Link" to="/resetPassword">Reset Password</Link>
+        </div>
     </div>
   );
 };
