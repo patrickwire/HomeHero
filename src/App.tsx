@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import { firebaseConfig } from './firebase.config';
-import { Login } from './screens/login';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { firebaseConfig } from "./firebase.config";
+import { Login } from "./screens/login";
 import  { PersistentDrawerRight } from './screens/drawer';
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import firebase, { auth } from "firebase";
+import { Home } from "./screens/home";
+interface UserAuth {
+  uid?: string;
+  loggedIn: boolean;
+}
 
 firebase.initializeApp(firebaseConfig);
 
+export const AuthContext = React.createContext({
+  uid: "",
+  loggedIn: false
+} as UserAuth);
+
 function App() {
-
+  const [userAuth, setUserAuth] = useState({ uid: "", loggedIn: false });
+  auth().onAuthStateChanged(a => {
+    if (userAuth.uid !== a?.uid) {
+      setUserAuth({ uid: a?.uid || "", loggedIn: true });
+    }
+  });
   return (
-
     <div className="App">
+      <AuthContext.Provider value={userAuth}>
         <Router>
           <div>
             <nav>
@@ -30,19 +42,20 @@ function App() {
                   <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <Link to="/users">Users</Link>
+                  <Link to="/login">Login</Link>
                 </li>
               </ul>
             </nav>
 
             {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
+            renders the first one that matches the current URL. */}
+
             <Switch>
               <Route path="/about">
                 <About />
               </Route>
-              <Route path="/users">
-                <Users />
+              <Route path="/login">
+                <Login />
               </Route>
               <Route path="/">
                 <Home />
@@ -50,28 +63,18 @@ function App() {
             </Switch>
           </div>
         </Router>
+
         <PersistentDrawerRight/>
-        <header className="App-header">
-            <h1>{auth().currentUser?.uid}</h1>
-             <Login></Login>
-        </header>
+
+      </AuthContext.Provider>
     </div>
-
-
   );
-}
-
-
-function Home() {
-  return <h2>Home</h2>
 }
 
 function About() {
   return <h2>About</h2>;
 }
 
-function Users() {
-  return <h2>Users</h2>;
-}
+
 
 export default App;
