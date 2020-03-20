@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import firebase, { auth } from "firebase";
 import { Home } from "./screens/home";
+import { Logout } from "./screens/logout";
 interface UserAuth {
   uid?: string;
   loggedIn: boolean;
@@ -23,8 +24,11 @@ export const AuthContext = React.createContext({
 function App() {
   const [userAuth, setUserAuth] = useState({ uid: "", loggedIn: false });
   auth().onAuthStateChanged(a => {
-    if (userAuth.uid !== a?.uid) {
+    if (a?.uid && userAuth.uid !== a?.uid) {
       setUserAuth({ uid: a?.uid || "", loggedIn: true });
+    }
+    if (a?.uid === undefined && userAuth.uid) {
+      setUserAuth({ uid: "", loggedIn: false });
     }
   });
   return (
@@ -41,6 +45,11 @@ function App() {
                   <Link to="/about">About</Link>
                 </li>
                 <li>
+                  <Link onClick={() => auth().signOut()} to="/logout">
+                    Logout
+                  </Link>
+                </li>
+                <li>
                   <Link to="/login">Login</Link>
                 </li>
               </ul>
@@ -55,6 +64,9 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
+              <Route path="/logout">
+                <Logout />
+              </Route>
               <Route path="/">
                 <Home />
               </Route>
@@ -66,12 +78,8 @@ function App() {
   );
 }
 
-
-
 function About() {
   return <h2>About</h2>;
 }
-
-
 
 export default App;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { auth } from 'firebase';
 import { AuthContext } from '../App';
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 interface Props{}
@@ -10,12 +11,12 @@ export const Login=(props:Props)=> {
     const [email,setEmail]=React.useState("")
     const [password,setPassword]=React.useState("")
     const userAuth = React.useContext(AuthContext);
-   
+    const history=useHistory()
     const onLogin=()=>{
      try {
       auth().setPersistence(auth.Auth.Persistence.LOCAL)
       const result=auth().signInWithEmailAndPassword(email,password)
-      
+      history.push("/")
      } catch (error) {
        alert("wrong login")
      }
