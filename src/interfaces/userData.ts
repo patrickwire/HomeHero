@@ -7,5 +7,6 @@ export interface Action{
 
 export interface UserData{
     username:string,
+    avatar:string,
     actions:Action[]
 }
