@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import firebase, { auth } from "firebase";
 import { Home } from "./screens/home";
 import { Logout } from "./screens/logout";
+import { Register } from "./screens/register";
 interface UserAuth {
   uid?: string;
   loggedIn: boolean;
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route path="/logout">
                 <Logout />
+              </Route>
+              <Route path="/register">
+                <Register />
               </Route>
               <Route path="/">
                 <Home />

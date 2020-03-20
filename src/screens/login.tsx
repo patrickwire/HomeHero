@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { auth } from 'firebase';
 import { AuthContext } from '../App';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory, Link } from 'react-router-dom';
 
 
 interface Props{}
@@ -28,5 +28,6 @@ export const Login=(props:Props)=> {
     <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder="email" value={email}></input>
     <input type="password" onChange={(e)=>setPassword(e.target.value)} value={password} placeholder="password"></input>
     <button onClick={onLogin}>Login</button>
+    <Link to="/register">Register</Link>
     </div>);
   }
