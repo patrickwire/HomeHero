@@ -1,15 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+=======
+import { firebaseConfig } from './firebase.config';
+import { Login } from './screens/login';
+import firebase, { auth } from "firebase";
+
+firebase.initializeApp(firebaseConfig);
+>>>>>>> 69af744c7b61e743028b15a8a3a33c8eb06f0b81
 
 function App() {
+
   return (
+<<<<<<< HEAD
     <Router>
       <div>
         <nav>
@@ -41,6 +51,14 @@ function App() {
         </Switch>
       </div>
     </Router>
+=======
+    <div className="App">
+      <header className="App-header">
+        <h1>{auth().currentUser?.uid}</h1>
+       <Login></Login>
+      </header>
+    </div>
+>>>>>>> 69af744c7b61e743028b15a8a3a33c8eb06f0b81
   );
 }
 
