@@ -11,6 +11,7 @@ import firebase, { auth } from "firebase";
 import { Home } from "./screens/home";
 import { Logout } from "./screens/logout";
 import { Register } from "./screens/register";
+import { ResetPassword } from "./screens/resetPassword";
 interface UserAuth {
   uid?: string;
   loggedIn: boolean;
@@ -55,6 +56,9 @@ function App() {
               </Route>
               <Route path="/register">
                 <Register />
+              </Route>
+              <Route path="/resetPassword">
+                <ResetPassword />
               </Route>
               <Route path="/">
                 <Home />
