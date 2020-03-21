@@ -7,6 +7,7 @@
     <author email="mp@floatec.de" href="http://patrickwire.de">
        HomeHero Team
     </author>
+
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
