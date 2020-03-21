@@ -119,7 +119,13 @@ export const Home = () => {
               addTask();
             }}
           >NEUER TASK</Button>
+
+        <div>
+          <div className="UsersWorldwide">9999999 BENUTZER WELTWEIT</div>
+          <div className="CommunityIdeas">COMMUNITY IDEEN</div>
         </div>
+        </div>
+
 
 
     </div>
