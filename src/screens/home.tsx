@@ -24,8 +24,38 @@ export const Home = () => {
   const [active, setActive] = useState(0);
   const [help, setHelp] = useState(0);
   const [health, setHealth] = useState(0);
+// @ts-ignore
+ const renderActions=(actions:Action[]):JSX.Element[]=>{
+  return actions.map((action,idx)=>
+  <div key={idx}>
+     <Button
+            onClick={() => {
+              updateTask(idx);
+            }}
+          >
+    {action.type}: {action.title}
+    </Button>
+    </div>)
+ }
 
   const userAuth = useContext(AuthContext);
+
+  const updateTask = (taskid: any) => {
+    let newActions = [...actions];
+    //@ts-ignore
+    newActions[taskid]['amount'] += 1;
+     //@ts-ignore
+    newActions[taskid]['points'] += 500;
+
+    firestore()
+    .collection("users")
+    .doc(userAuth.uid)
+    .update({
+      actions: [...actions]
+    });
+    setAction(newActions);
+  }
+
   const addTask = () => {
     const newaction={
       type: "health",
@@ -64,6 +94,7 @@ export const Home = () => {
   }, [userAuth]);
   
   useEffect(()=>{
+    console.log(1)
     const s =actions.reduce((a, b) => {return a + (b['points'])}, 0)
     const active = actions['filter'](a => a['type']=='active');
     const a = active.reduce((a, b) => {return a + (b['points'])}, 0)
@@ -86,14 +117,14 @@ export const Home = () => {
         <SocialMediaContainer points={stars}/>
 
         <div className="TaskList">
+          {renderActions(actions)}
           <Button
             onClick={() => {
               addTask();
             }}
-          >
-            Example Task Done {stars}
-          </Button>
+          >NEUER TASK</Button>
         </div>
+
     </div>
   );
 };
