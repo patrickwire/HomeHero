@@ -37,32 +37,29 @@ export const Register = () => {
       <h1>Register</h1>
       <ImageUpload onChange={(url)=>setAvatar(url)}/>
       <TextField
-        id="outlined-basic"
+       
         label="username"
-        variant="outlined"
         onChange={e => setUsername(e.target.value)}
       
         value={username}
       /> <br /> <br />
        <TextField
-        id="outlined-basic"
+       
         label="email"
-        variant="outlined"
+      
         type="email"
         onChange={e => setEmail(e.target.value)}
      
         value={email}
       /> <br /> <br />
        <TextField
-        id="outlined-basic"
         label="password"
-        variant="outlined"
         type="password"
         onChange={e => setPassword(e.target.value)}
         value={password}
         
       /> <br /> <br />
-      <Button  variant="contained" color="secondary"  onClick={onRegister}>Register</Button>
+      <Button  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
       <br />
       <div className="RegisterLink">
         <Link className="Link" to="/login">Back to Login</Link>

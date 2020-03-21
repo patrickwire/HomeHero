@@ -6,3 +6,10 @@
   object-fit: cover;
   display: inline-block;
 }
+.avatarFrame img{
+    width: 134px;
+    height: 134px;
+    border-radius: 37px;
+    object-fit: cover;
+    display: inline-block;
+}
