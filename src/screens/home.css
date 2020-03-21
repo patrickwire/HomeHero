@@ -70,12 +70,14 @@
 
 .Username {
     font-size: 16px;
+    font-weight: 500;
     color: #3F306E;
     letter-spacing: 0;
 }
 
 .Userpoints {
     font-size: 40px;
+    font-weight: 700;
     color: #3F306E;
     letter-spacing: 0;
 }
@@ -90,4 +92,43 @@
     color: #3F306E;
     letter-spacing: 0;
     line-height: 12px;
+}
+
+.SocialMediaContainer {
+    background: #4424A8;
+    border-radius: 32px; 
+    width: 360px;
+    height: 140px;
+    position: absolute;
+    top: 260px;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.Share {
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+}
+
+.SharePoints {
+    font-family: 'Montserrat';
+    color: #FFFFFF;
+    float: right;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.TaskList {
+    position: absolute;
+    top: 420px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
