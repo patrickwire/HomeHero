@@ -14,6 +14,7 @@ import { Register } from "./screens/register";
 import { ResetPassword } from "./screens/resetPassword";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { deepPurple } from "@material-ui/core/colors";
+import { Onboarding } from "./screens/onboarding";
 const theme = createMuiTheme({
   palette: {
     primary: deepPurple
@@ -32,7 +33,7 @@ export const AuthContext = React.createContext({
   loggedIn: false
 } as UserAuth);
 
-function App() {
+function App(props:any) {
   const [userAuth, setUserAuth] = useState({ uid: "", loggedIn: false });
   auth().onAuthStateChanged(a => {
     if (a?.uid && userAuth.uid !== a?.uid) {
@@ -42,17 +43,22 @@ function App() {
       setUserAuth({ uid: "", loggedIn: false });
     }
   });
+
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
       <AuthContext.Provider value={userAuth}>
         <Router>
-          <PersistentDrawerRight/>
+          {props.location?.pathname!=='/intro' && <PersistentDrawerRight/>}
           <div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
 
             <Switch>
+            <Route path="/intro">
+                <Onboarding />
+              </Route>
               <Route path="/about">
                 <About />
               </Route>
