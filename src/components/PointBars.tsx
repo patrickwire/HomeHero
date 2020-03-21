@@ -6,7 +6,9 @@ import icon_star_white from "../assets/icon_star_white.svg";
 import icon_star_purple from "../assets/icon_star_purple.svg";
 
 interface Props{
-
+  active: number;
+  health: number;
+  help: number;
 }
 
 export const PointBars=(props:Props)=>{
@@ -15,7 +17,7 @@ export const PointBars=(props:Props)=>{
       <img src={banner_red}></img>
       <div className="PointContainer">
         <div className="Points">
-          <b>9.999</b>
+          <b>{props.active}</b>
         </div>
         <div className="Nameline">AKTIV</div>
       </div>
@@ -27,7 +29,7 @@ export const PointBars=(props:Props)=>{
       <img src={banner_blue}></img>
       <div className="PointContainer">
         <div className="Points">
-          <b>9.999</b>
+          <b>{props.health}</b>
         </div>
         <div className="Nameline">GESUNDHEIT</div>
       </div>
@@ -39,7 +41,7 @@ export const PointBars=(props:Props)=>{
       <img src={banner_orange}></img>
       <div className="PointContainer">
         <div className="Points">
-          <b>9.999</b>
+          <b>{props.help}</b>
         </div>
         <div className="Nameline">HELFEN</div>
       </div>

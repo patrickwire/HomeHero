@@ -21,11 +21,16 @@ export const Home = () => {
   const [avatar, setAvatar] = useState("");
   const [actions, setAction] = useState([]);
   const [stars, setStars] = useState(0);
+  const [active, setActive] = useState(0);
+  const [help, setHelp] = useState(0);
+  const [health, setHealth] = useState(0);
+
   const userAuth = useContext(AuthContext);
   const addTask = () => {
     const newaction={
-      type: "test",
-      title: "do good stuff",
+      type: "health",
+      title: "Händewaschen",
+      amount: 1,
       points: 500,
       date: moment().toISOString()
     }
@@ -60,12 +65,22 @@ export const Home = () => {
   
   useEffect(()=>{
     const s =actions.reduce((a, b) => {return a + (b['points'])}, 0)
-    setStars(  s)
+    const active = actions['filter'](a => a['type']=='active');
+    const a = active.reduce((a, b) => {return a + (b['points'])}, 0)
+    const health = actions['filter'](a => a['type']=='health');
+    const hea = health.reduce((a, b) => {return a + (b['points'])}, 0)
+    const help = actions['filter'](a => a['type']=='help');
+    const hel = help.reduce((a, b) => {return a + (b['points'])}, 0)
+    setStars(s);
+    setActive(a);
+    setHealth(hea);
+    setHelp(hel);
   },[actions])
+
   return (
     <div className="homescreen">
      
-       <PointBars/>
+       <PointBars active={active} health={health} help={help} />
         <ProfileContainer username={username} avatar={avatar} points={stars}/>
 
         <SocialMediaContainer points={stars}/>
