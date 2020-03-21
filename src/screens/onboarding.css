@@ -5,19 +5,21 @@
     text-align: center;
 }
 .onboardingScreen .title{
-    font-family: Montserrat-Bold;
-font-size: 20px;
-color: #FFFFFF;
-letter-spacing: 1px;
-line-height: 28px;
-padding-top: 160px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    line-height: 28px;
+    padding-top: 160px;
 }
 .onboardingScreen .text{
     padding-top: 16px;
     opacity: 0.5;
-font-family: Montserrat-Regular;
-font-size: 14px;
-color: #FFFFFF;
-letter-spacing: 0;
-line-height: 24px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 24px;
 }

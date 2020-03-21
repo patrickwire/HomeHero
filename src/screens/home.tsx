@@ -15,6 +15,8 @@ import { ProfileContainer } from "../components/ProfielContainer";
 import { PointBars } from "../components/PointBars";
 import { SocialMediaContainer } from "../components/socialmedia";
 import { ActionCard } from "../components/ActionCard";
+import { CommunityActionCard } from "../components/CommunityActionCard";
+
 
 
 export const Home = () => {
@@ -123,6 +125,9 @@ export const Home = () => {
         <div>
           <div className="UsersWorldwide">9999999 BENUTZER WELTWEIT</div>
           <div className="CommunityIdeas">COMMUNITY IDEEN</div>
+          <CommunityActionCard type='active' onChange={value=> addTask()}/>
+          <CommunityActionCard type='health' onChange={value=> addTask()}/>
+          <CommunityActionCard type='help' onChange={value=> addTask()}/> 
         </div>
         </div>
 
