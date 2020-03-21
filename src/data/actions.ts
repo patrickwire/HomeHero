@@ -1,4 +1,4 @@
-export actions =[
+export const actions =[
     {
       "type": "Gesundheit",
       "Title": "Händewaschen für immer mindestens 30 Sekunden",
