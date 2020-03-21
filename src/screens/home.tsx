@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { firestore } from "firebase";
 import { AuthContext } from "../App";
 import { UserData } from "../interfaces/userData";
+import "./home.css";
 
 export const Home=()=> {
     const [username,setUsername]=useState("")
@@ -20,5 +21,12 @@ export const Home=()=> {
         }
         
     },[userAuth])
-return(<div><h2>Home</h2>{username!==""&&"hello "+username}<br/><img src={avatar}/></div>);
+return(
+    <div>
+        <img className="ProfilePic" src={avatar}/>
+        <div className="Behavior">
+            <b className="Points">9.999</b><br />
+            <b className="Nameline">BEHAVIOR</b>
+        </div>
+    </div>);
   }

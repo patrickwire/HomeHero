@@ -1,0 +1,27 @@
+.ProfilePic {
+    /* Sketch doesnt export pattern fills at this point */
+    border: 3px solid #FFFFFF;
+    border-radius: 40px;
+    max-width: 10%;
+}
+
+.Behavior {
+    background: #FDB752;
+    border-radius: 16px;
+    max-width: 10%;
+}
+
+.Points {
+    font-family: Helvetica;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.Nameline {
+    font-family: Helvetica;
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 12px;
+}
