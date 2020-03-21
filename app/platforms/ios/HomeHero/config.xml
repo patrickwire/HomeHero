@@ -28,7 +28,8 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-intent href="http://*/*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
