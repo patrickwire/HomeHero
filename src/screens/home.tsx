@@ -11,6 +11,8 @@ import banner_blue from "../assets/banner_blue.svg";
 import banner_red from "../assets/banner_red.svg";
 import icon_star_white from "../assets/icon_star_white.svg";
 import icon_star_purple from "../assets/icon_star_purple.svg";
+import { ProfileContainer } from "../components/ProfielContainer";
+import { PointBars } from "../components/PointBars";
 
 export const Home = () => {
   const [username, setUsername] = useState("");
@@ -46,60 +48,11 @@ export const Home = () => {
     }
   }, [userAuth]);
   return (
-    <div>
-      <div className="ProfileContainer">
-        <div className="ProfilePic">
-          <Avatar url={avatar} />
-          <div className="User">
-            <div className="Username">{username !== "" && username}</div>
-            <div className="Userpoints">
-              <b>9.999</b>
-              <img
-                style={{ height: "32px", paddingLeft: "7px" }}
-                src={icon_star_purple}
-              ></img>
-            </div>
-            <div className="Descriptor">STERNE</div>
-          </div>
-        </div>
-      </div>
-      <div className="SVGContainer">
-        <div className="Social">
-          <img src={banner_red}></img>
-          <div className="PointContainer">
-            <div className="Points">
-              <b>9.999</b>
-            </div>
-            <div className="Nameline">AKTIV</div>
-          </div>
-          <div className="Star">
-            <img style={{ height: "16px" }} src={icon_star_white}></img>
-          </div>
-        </div>
-        <div className="Hygiene">
-          <img src={banner_blue}></img>
-          <div className="PointContainer">
-            <div className="Points">
-              <b>9.999</b>
-            </div>
-            <div className="Nameline">GESUNDHEIT</div>
-          </div>
-          <div className="Star">
-            <img style={{ height: "16px" }} src={icon_star_white}></img>
-          </div>
-        </div>
-        <div className="Behavior">
-          <img src={banner_orange}></img>
-          <div className="PointContainer">
-            <div className="Points">
-              <b>9.999</b>
-            </div>
-            <div className="Nameline">HELFEN</div>
-          </div>
-          <div className="Star">
-            <img style={{ height: "16px" }} src={icon_star_white}></img>
-          </div>
-        </div>
+    <div className="homescreen">
+     
+       <PointBars/>
+        <ProfileContainer username={username} avatar={avatar}/>
+       
         <Button
           onClick={() => {
             addTask();
@@ -107,7 +60,6 @@ export const Home = () => {
         >
           Add tasks
         </Button>
-      </div>
     </div>
   );
 };

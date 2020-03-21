@@ -5,7 +5,9 @@
     padding-right: 7px;
     padding-bottom: 6px;
 }
-
+.homescreen{
+    text-align: left;
+}
 .Social {
     position: absolute;
     top: 20px;
@@ -58,14 +60,7 @@
     top: 10px;
 }
 
-.SVGContainer{
-    position: relative;
-    float: left;
-}
-.ProfileContainer{
-    position: relative;
-    float: right;
-}
+
 
 .ProfilePic{
     position: absolute;

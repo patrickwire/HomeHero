@@ -52,7 +52,7 @@ function App(props:any) {
       <AuthContext.Provider value={userAuth}>
         <Router>
           {props.location?.pathname!=='/intro' && <PersistentDrawerRight/>}
-          <div>
+          <div style={{display:"inline-block",width:"100%",maxWidth:"420px",position:"relative"}}>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
 
