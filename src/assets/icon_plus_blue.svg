@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>assets/icon_plus_blue</title>
+    <desc>Created with Sketch.</desc>
+    <g id="assets/icon_plus_blue" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10.5,11 L10.5,5.5 C10.5,4.67157288 11.1715729,4 12,4 C12.8284271,4 13.5,4.67157288 13.5,5.5 L13.5,11 L19,11 C19.8284271,11 20.5,11.6715729 20.5,12.5 C20.5,13.3284271 19.8284271,14 19,14 L13.5,14 L13.5,19.5 C13.5,20.3284271 12.8284271,21 12,21 C11.1715729,21 10.5,20.3284271 10.5,19.5 L10.5,14 L5,14 C4.17157288,14 3.5,13.3284271 3.5,12.5 C3.5,11.6715729 4.17157288,11 5,11 L10.5,11 Z" id="Path" fill="#41DAE8" fill-rule="nonzero"></path>
+    </g>
+</svg>

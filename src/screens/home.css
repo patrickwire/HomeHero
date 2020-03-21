@@ -1,0 +1,98 @@
+.Card {
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 7px;
+    padding-bottom: 6px;
+}
+
+.Social {
+    position: absolute;
+    top: 20px;
+    z-index: -3;
+}
+
+.Hygiene {
+    position: absolute;
+    top: 70px;
+    z-index: -2;
+
+}
+
+.Behavior {
+    position: absolute;
+    top: 120px;
+    z-index: -1;
+
+}
+
+.PointContainer {
+    position: absolute;
+    top: 5px;
+    left: 60px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    z-index: 0;
+    text-align: left;
+}
+
+.Points {
+    font-family: 'Oswald';
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.Nameline {
+    font-family: 'Montserrat';
+    font-size: 10px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 12px;
+}
+
+.Star{
+    position: absolute;
+    float: right;
+    right: 7px;
+    top: 10px;
+}
+
+.SVGContainer{
+    position: relative;
+    float: left;
+}
+.ProfileContainer{
+    position: relative;
+    float: right;
+}
+
+.ProfilePic{
+    position: absolute;
+    top: 16px;
+    right: 51px;
+}
+
+.Username {
+    font-size: 16px;
+    color: #3F306E;
+    letter-spacing: 0;
+}
+
+.Userpoints {
+    font-size: 40px;
+    color: #3F306E;
+    letter-spacing: 0;
+}
+
+.User{
+    font-family: 'Oswald';
+    text-align: left;
+}
+
+.Descriptor {
+    font-size: 10px;
+    color: #3F306E;
+    letter-spacing: 0;
+    line-height: 12px;
+}

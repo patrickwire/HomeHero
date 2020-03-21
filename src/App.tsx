@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import firebase, { auth } from "firebase";
 import { Home } from "./screens/home";
 import { Logout } from "./screens/logout";
+import { Profile } from "./screens/profile";
 import { Register } from "./screens/register";
 import { ResetPassword } from "./screens/resetPassword";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
@@ -61,6 +62,9 @@ function App(props:any) {
               </Route>
               <Route path="/about">
                 <About />
+              </Route>
+              <Route path="/profile">
+                <Profile />
               </Route>
               <Route path="/login">
                 <Login />
