@@ -5,7 +5,7 @@ import { firebaseConfig } from "./firebase.config";
 import { Login } from "./screens/login";
 import  { PersistentDrawerRight } from './screens/drawer';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
 
 import firebase, { auth } from "firebase";
 import { Home } from "./screens/home";
@@ -35,22 +35,20 @@ export const AuthContext = React.createContext({
 } as UserAuth);
 
 function App(props:any) {
+  const [basename,setBasename]=useState("/intro")
   const [userAuth, setUserAuth] = useState({ uid: "", loggedIn: false });
   auth().onAuthStateChanged(a => {
     if (a?.uid && userAuth.uid !== a?.uid) {
       setUserAuth({ uid: a?.uid || "", loggedIn: true });
+      setBasename("/")
     }
     if (a?.uid === undefined && userAuth.uid) {
       setUserAuth({ uid: "", loggedIn: false });
     }
   });
 
-
-  return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-      <AuthContext.Provider value={userAuth}>
-        <Router>
+const authUserRouter=()=>{
+  return <Router> 
           {props.location?.pathname!=='/intro' && <PersistentDrawerRight/>}
           <div style={{display:"inline-block",width:"100%",maxWidth:"420px",position:"relative"}}>
             {/* A <Switch> looks through its children <Route>s and
@@ -66,6 +64,32 @@ function App(props:any) {
               <Route path="/profile">
                 <Profile />
               </Route>
+             
+              <Route path="/logout">
+                <Logout />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+}
+
+const unauthUserRouter=()=>{
+  return <Router> 
+          {props.location?.pathname!=='/intro' && <PersistentDrawerRight/>}
+          <div style={{display:"inline-block",width:"100%",maxWidth:"420px",position:"relative"}}>
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+
+            <Switch>
+            <Route path="/intro">
+               <Onboarding />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
               <Route path="/login">
                 <Login />
               </Route>
@@ -79,11 +103,17 @@ function App(props:any) {
                 <ResetPassword />
               </Route>
               <Route path="/">
-                <Home />
+              <Onboarding />
               </Route>
             </Switch>
           </div>
         </Router>
+}
+  return (
+    <div className="App">
+      <ThemeProvider theme={theme}>
+      <AuthContext.Provider value={userAuth}>
+        {userAuth.loggedIn?authUserRouter():unauthUserRouter()}
       </AuthContext.Provider>
       </ThemeProvider>
     </div>

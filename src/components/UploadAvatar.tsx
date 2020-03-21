@@ -53,7 +53,7 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
     return (
       <div className="center">
        <Avatar
-          url={this.state.url || "https://via.placeholder.com/400x300"}
+          url={this.state.url }
          
         />
         <div className="file-field input-field">
