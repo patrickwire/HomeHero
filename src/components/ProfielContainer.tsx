@@ -4,7 +4,7 @@ import icon_star_purple from "../assets/icon_star_purple.svg";
 
 import { Avatar } from "./Avatar";
 
-interface Props {avatar:string,username:string}
+interface Props {avatar:string,username:string, points:number}
 export const ProfileContainer=(props:Props)=>{
     return(<div className="ProfileContainer">
     <div className="ProfilePic">
@@ -12,7 +12,7 @@ export const ProfileContainer=(props:Props)=>{
       <div className="User">
         <div className="Username">{props.username !== "" && props.username}</div>
         <div className="Userpoints">
-          <b>9.999</b>
+          <b>{props.points}</b>
           <img
             style={{ height: "32px", paddingLeft: "7px" }}
             src={icon_star_purple}

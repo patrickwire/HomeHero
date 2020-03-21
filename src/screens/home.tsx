@@ -20,19 +20,23 @@ export const Home = () => {
   const [username, setUsername] = useState("");
   const [avatar, setAvatar] = useState("");
   const [actions, setAction] = useState([]);
+  const [stars, setStars] = useState(0);
   const userAuth = useContext(AuthContext);
   const addTask = () => {
+    const newaction={
+      type: "test",
+      title: "do good stuff",
+      points: 500,
+      date: moment().toISOString()
+    }
     firestore()
       .collection("users")
       .doc(userAuth.uid)
       .update({
-        actions: firestore.FieldValue.arrayUnion({
-          type: "test",
-          title: "do good stuff",
-          points: 500,
-          date: moment().toISOString()
-        })
+        actions: firestore.FieldValue.arrayUnion(newaction)
       });
+      // @ts-ignore
+      setAction([...actions,newaction])
   };
   useEffect(() => {
     if (userAuth.uid) {
@@ -45,17 +49,26 @@ export const Home = () => {
             const data = snapshot.data() as UserData;
             setUsername(data.username.toUpperCase());
             setAvatar(data.avatar);
+            // @ts-ignore
+            setAction(data.actions||[]);
+            // @ts-ignore
+          
           }
         });
     }
   }, [userAuth]);
+  
+  useEffect(()=>{
+    const s =actions.reduce((a, b) => {return a + (b['points'])}, 0)
+    setStars(  s)
+  },[actions])
   return (
     <div className="homescreen">
      
        <PointBars/>
-        <ProfileContainer username={username} avatar={avatar}/>
+        <ProfileContainer username={username} avatar={avatar} points={stars}/>
 
-        <SocialMediaContainer />
+        <SocialMediaContainer points={stars}/>
 
         <div className="TaskList">
           <Button
@@ -63,7 +76,7 @@ export const Home = () => {
               addTask();
             }}
           >
-            Example Task Done
+            Example Task Done {stars}
           </Button>
         </div>
     </div>

@@ -3,7 +3,7 @@ import icon_arrow_white from "../assets/icon_arrow_white.svg";
 import icon_star_white from "../assets/icon_star_white.svg";
 
 
-interface Props {}
+interface Props {points: number}
 export const SocialMediaContainer=(props:Props)=>{
     return(
         <div className="SocialMediaContainer">
@@ -14,7 +14,7 @@ export const SocialMediaContainer=(props:Props)=>{
             
             <img style={{float: 'right', paddingTop: '20px', paddingRight: '20px'}} src={icon_arrow_white}></img>
             <div className="SharePoints">
-                 9.999 
+                 {props.points}
                 <img style={{ height: "16px" }} src={icon_star_white}></img>
             </div>
         </div>
