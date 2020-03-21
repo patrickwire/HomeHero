@@ -38,7 +38,7 @@ export const Home = () => {
       {username !== "" && "hello " + username}
       <br />
       <Avatar url={avatar} />
-      <Button onClick={()=>{addTask()}}>Add tasks</Button>
+      <br/><Button onClick={()=>{addTask()}}>Add tasks</Button>
     </div>
   );
 };
