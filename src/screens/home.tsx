@@ -4,6 +4,9 @@ import { AuthContext } from "../App";
 import { UserData } from "../interfaces/userData";
 import "./home.css";
 import { Avatar } from "../components/Avatar";
+import banner_orange from "../assets/banner_orange.svg"
+import banner_blue from "../assets/banner_blue.svg"
+import banner_red from "../assets/banner_red.svg"
 
 
 export const Home = () => {
@@ -27,15 +30,24 @@ export const Home = () => {
   }, [userAuth]);
   return (
     <div>
-      <h2>Home</h2>
-      {username !== "" && "hello " + username}
-      <br />
-      <Avatar url={avatar} />
-      <div className="Behavior">
-            <b className="Points">9.999</b><br />
-            <b className="Nameline">BEHAVIOR</b>
+        <div className="ProfileContainer">
+            <Avatar url={avatar} />
+            {username !== "" && "hello " + username}
         </div>
+        <div className="SVGContainer">
+            <div className="Behavior">
+                 <img src={banner_orange}></img>
+                 <b className="Points">9.999</b><br />
+            </div>
+            <div className="Hygiene">
+                 <img src={banner_blue}></img>
+            </div>
+            <div className="Social">
+                 <img src={banner_red}></img>
+            </div>
+        </div>
+
     </div>
+    
   );
 };
->>>>>>> 98b25aca81ce7bac36380e7bc5eee39f2b476558

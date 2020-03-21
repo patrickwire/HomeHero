@@ -1,27 +1,54 @@
-.ProfilePic {
-    /* Sketch doesnt export pattern fills at this point */
-    border: 3px solid #FFFFFF;
-    border-radius: 40px;
-    max-width: 10%;
+.Card {
+    border-radius: 16px;
+    padding-top: 8px;
+    padding-left: 12px;
+    padding-right: 7px;
+    padding-bottom: 6px;
 }
 
 .Behavior {
-    background: #FDB752;
-    border-radius: 16px;
-    max-width: 10%;
+    position: absolute;
+    top: 20px;
+    z-index: -3;
+
+}
+
+.Hygiene {
+    position: absolute;
+    top: 70px;
+    z-index: -2;
+
+}
+
+.Social {
+    position: absolute;
+    top: 120px;
+    z-index: -1;
+
 }
 
 .Points {
-    padding-top: 8px;
+    position: absolute;
+    left: 70px;
     font-size: 16px;
     color: #FFFFFF;
     letter-spacing: 0;
+    padding-top: 3px;
+    z-index: 0;
 }
 
 .Nameline {
-    padding-bottom: 8px;
     font-size: 10px;
     color: #FFFFFF;
     letter-spacing: 0;
     line-height: 12px;
+}
+
+.SVGContainer{
+    position: relative;
+    float: left;
+}
+.ProfileContainer{
+    position: relative;
+    float: right;
 }
