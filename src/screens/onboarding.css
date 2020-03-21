@@ -1,6 +1,6 @@
 .onboardingScreen{
     background-color:rgb(68, 36, 168);
-    height: 100vh;
+    min-height: 100vh;
     padding:20px;
     text-align: center;
 }

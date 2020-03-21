@@ -2,7 +2,7 @@ import React from "react";
 import { AuthContext } from "../App";
 import { useHistory, Link } from "react-router-dom";
 import { auth, firestore } from "firebase";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button, FormControlLabel, Checkbox } from "@material-ui/core";
 import ImageUpload from "../components/UploadAvatar";
 
 
@@ -13,6 +13,7 @@ export const Register = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [avatar, setAvatar] = React.useState("");
+  const [agb, setAgb] = React.useState(false);
   const userAuth = React.useContext(AuthContext);
   const history = useHistory();
   const onRegister = () => {
@@ -59,7 +60,17 @@ export const Register = () => {
         value={password}
         
       /> <br /> <br />
-      <Button  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
+    
+          <Checkbox
+            checked={agb}
+            onChange={(e)=>{setAgb(e.target.checked) }}
+            name="checkedF"
+           
+          />Ich akzeptiere die <Link className="Link" style={{textDecoration:"underline"}} to="/terms">AGBs and Datenschutzbestimmungen</Link>
+      
+      <br/>
+      <br/>
+      <Button disabled={!agb}  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
       <br />
       <div className="RegisterLink">
         <Link className="Link" to="/login">Back to Login</Link>
