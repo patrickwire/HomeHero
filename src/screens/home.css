@@ -12,14 +12,14 @@
 }
 
 .Points {
-    font-family: Helvetica;
+    padding-top: 8px;
     font-size: 16px;
     color: #FFFFFF;
     letter-spacing: 0;
 }
 
 .Nameline {
-    font-family: Helvetica;
+    padding-bottom: 8px;
     font-size: 10px;
     color: #FFFFFF;
     letter-spacing: 0;
