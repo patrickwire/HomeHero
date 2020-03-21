@@ -10,15 +10,21 @@
     <feature name="LocalNotification">
         <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
     </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
     <feature name="Badge">
         <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
     </feature>
-    <name>HomeHero</name>
+    <name>Heldenzeit</name>
     <description>
-       Master the covid19 times with HomeHero.
+      Schaffst du es den perfekten Tag zuhause zu gestalten? - Heldenzeit hilft dir!
     </description>
     <author email="mp@floatec.de" href="http://patrickwire.de">
-       HomeHero Team
+       Heldenzeit Team
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -30,5 +36,18 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <icon density="ldpi" src="res/icon/android/ldpi.png" />
+    <icon density="mdpi" src="res/icon/android/mdpi.png" />
+    <icon density="hdpi" src="res/icon/android/hdpi.png" />
+    <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+    <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+    <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
+    <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
+    <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
 </widget>

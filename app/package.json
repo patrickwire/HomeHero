@@ -17,7 +17,9 @@
     "cordova-ios": "^5.1.1",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-device": "^2.0.3",
+    "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
+    "cordova-plugin-network-information": "^2.0.2",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
@@ -26,7 +28,9 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-network-information": {}
     },
     "platforms": [
       "ios",
