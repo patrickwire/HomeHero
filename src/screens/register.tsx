@@ -63,7 +63,11 @@ export const Register = () => {
         
       /> <br /> <br />
       <Button  variant="contained" color="secondary"  onClick={onRegister}>Register</Button>
-      <br /><Link to="/login">Login</Link>
+      <br />
+      <div className="RegisterLink">
+        <Link className="Link" to="/login">Back to Login</Link>
+      </div>
+
     </div>
   );
 };

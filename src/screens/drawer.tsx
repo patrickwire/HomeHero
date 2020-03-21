@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -20,6 +20,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import {Link} from "react-router-dom";
 import {auth} from "firebase";
+import {AuthContext} from "../App";
 
 const drawerWidth = 240;
 interface Props{}
@@ -86,6 +87,8 @@ export const PersistentDrawerRight=(props:Props)=> {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const userAuth=useContext(AuthContext);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -119,11 +122,7 @@ export const PersistentDrawerRight=(props:Props)=> {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
+      <main>
         <div className={classes.drawerHeader} />
       </main>
       <Drawer
@@ -141,29 +140,37 @@ export const PersistentDrawerRight=(props:Props)=> {
           </IconButton>
         </div>
         <Divider />
+
         <List>
-          <Link to="/login">
-            <ListItem button key="Login">
-              <ListItemIcon><ExitToAppIcon /></ListItemIcon>
-              <ListItemText primary="Login" />
-            </ListItem>
-          </Link>
-           <Link onClick={() => auth().signOut()} to="/logout">
+          {!userAuth.loggedIn&&
+            <Link className="Link" to="/login">
+              <ListItem button key="Login">
+                <ListItemIcon><ExitToAppIcon /></ListItemIcon>
+                <ListItemText primary="Login" />
+              </ListItem>
+            </Link>}
+
+          {userAuth.loggedIn&&
+           <Link className="Link" onClick={() => auth().signOut()} to="/logout">
             <ListItem button key="Logout">
               <ListItemIcon><ExitToAppIcon /></ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItem>
-          </Link>
+          </Link>}
+
         </List>
         <Divider />
         <List>
-          <Link to="/">
+          {userAuth.loggedIn&&<div>
+          <Link className="Link" to="/">
             <ListItem button key="Home">
               <ListItemIcon><HomeIcon /></ListItemIcon>
               <ListItemText primary="Home" />
             </ListItem>
           </Link>
-          <Link to="/about">
+          </div>}
+
+          <Link className="Link" to="/about">
             <ListItem button key="About">
               <ListItemIcon><InfoIcon /></ListItemIcon>
               <ListItemText primary="About" />
