@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.da7c422c.chunk.css",
-    "main.js": "./static/js/main.d7af278f.chunk.js",
-    "main.js.map": "./static/js/main.d7af278f.chunk.js.map",
+    "main.css": "./static/css/main.41cec1b6.chunk.css",
+    "main.js": "./static/js/main.31550a5d.chunk.js",
+    "main.js.map": "./static/js/main.31550a5d.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.482e760a.js",
     "runtime-main.js.map": "./static/js/runtime-main.482e760a.js.map",
-    "static/js/2.a3641bb3.chunk.js": "./static/js/2.a3641bb3.chunk.js",
-    "static/js/2.a3641bb3.chunk.js.map": "./static/js/2.a3641bb3.chunk.js.map",
+    "static/js/2.a15d905a.chunk.js": "./static/js/2.a15d905a.chunk.js",
+    "static/js/2.a15d905a.chunk.js.map": "./static/js/2.a15d905a.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.430886a946ece818810eb1217290a15b.js": "./precache-manifest.430886a946ece818810eb1217290a15b.js",
+    "precache-manifest.12e0cd0a4f64b8a68f0bda486cc143a9.js": "./precache-manifest.12e0cd0a4f64b8a68f0bda486cc143a9.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.da7c422c.chunk.css.map": "./static/css/main.da7c422c.chunk.css.map",
-    "static/js/2.a3641bb3.chunk.js.LICENSE.txt": "./static/js/2.a3641bb3.chunk.js.LICENSE.txt",
+    "static/css/main.41cec1b6.chunk.css.map": "./static/css/main.41cec1b6.chunk.css.map",
+    "static/js/2.a15d905a.chunk.js.LICENSE.txt": "./static/js/2.a15d905a.chunk.js.LICENSE.txt",
     "static/media/avatar_preview.svg": "./static/media/avatar_preview.aa8a3a48.svg",
     "static/media/banner_blue.svg": "./static/media/banner_blue.b4a22b9f.svg",
     "static/media/banner_orange.svg": "./static/media/banner_orange.f380ea87.svg",
     "static/media/banner_red.svg": "./static/media/banner_red.0639846e.svg",
+    "static/media/icon_arrow_purple.svg": "./static/media/icon_arrow_purple.8e1f50c7.svg",
     "static/media/icon_arrow_white.svg": "./static/media/icon_arrow_white.05d66283.svg",
     "static/media/UploadAvatar.css": "./static/media/icon_camera.22aa2495.svg",
     "static/media/icon_star_purple.svg": "./static/media/icon_star_purple.baf7d172.svg",
@@ -24,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.482e760a.js",
-    "static/js/2.a3641bb3.chunk.js",
-    "static/css/main.da7c422c.chunk.css",
-    "static/js/main.d7af278f.chunk.js"
+    "static/js/2.a15d905a.chunk.js",
+    "static/css/main.41cec1b6.chunk.css",
+    "static/js/main.31550a5d.chunk.js"
   ]
 }

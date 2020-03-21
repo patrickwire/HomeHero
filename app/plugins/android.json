@@ -12,6 +12,12 @@
     },
     "cordova-plugin-local-notification": {
       "PACKAGE_NAME": "de.patrickwire.homehero"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "de.patrickwire.homehero"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "de.patrickwire.homehero"
     }
   },
   "dependent_plugins": {

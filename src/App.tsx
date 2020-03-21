@@ -16,6 +16,7 @@ import { ResetPassword } from "./screens/resetPassword";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { deepPurple } from "@material-ui/core/colors";
 import { Onboarding } from "./screens/onboarding";
+import { Terms } from "./screens/terms";
 const theme = createMuiTheme({
   palette: {
     primary: deepPurple
@@ -68,6 +69,9 @@ const authUserRouter=()=>{
               <Route path="/logout">
                 <Logout />
               </Route>
+              <Route path="/terms">
+                <Terms />
+              </Route>
               <Route path="/">
                 <Home />
               </Route>
@@ -92,6 +96,9 @@ const unauthUserRouter=()=>{
               </Route>
               <Route path="/login">
                 <Login />
+              </Route>
+              <Route path="/terms">
+                <Terms />
               </Route>
               <Route path="/logout">
                 <Logout />
