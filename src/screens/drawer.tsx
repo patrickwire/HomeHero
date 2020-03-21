@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import PersonIcon from '@material-ui/icons/Person';
 import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
@@ -150,13 +151,20 @@ export const PersistentDrawerRight=(props:Props)=> {
               </ListItem>
             </Link>}
 
-          {userAuth.loggedIn&&
+          {userAuth.loggedIn&&<div>
            <Link className="Link" onClick={() => auth().signOut()} to="/logout">
             <ListItem button key="Logout">
               <ListItemIcon><ExitToAppIcon /></ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItem>
-          </Link>}
+          </Link>
+          <Link className="Link" to="/profile">
+            <ListItem button key="Profile">
+              <ListItemIcon><PersonIcon /></ListItemIcon>
+              <ListItemText primary="Profile" />
+            </ListItem>
+           </Link></div>
+            }
 
         </List>
         <Divider />
