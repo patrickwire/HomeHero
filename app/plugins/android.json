@@ -9,7 +9,17 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "de.patrickwire.homehero"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "de.patrickwire.homehero"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "de.patrickwire.homehero"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "de.patrickwire.homehero"
+    }
+  }
 }
