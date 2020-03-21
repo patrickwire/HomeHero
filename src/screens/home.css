@@ -6,11 +6,10 @@
     padding-bottom: 6px;
 }
 
-.Behavior {
+.Social {
     position: absolute;
     top: 20px;
     z-index: -3;
-
 }
 
 .Hygiene {
@@ -20,28 +19,43 @@
 
 }
 
-.Social {
+.Behavior {
     position: absolute;
     top: 120px;
     z-index: -1;
 
 }
 
-.Points {
+.PointContainer {
     position: absolute;
-    left: 70px;
+    top: 5px;
+    left: 60px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    z-index: 0;
+    text-align: left;
+}
+
+.Points {
+    font-family: 'Oswald';
     font-size: 16px;
     color: #FFFFFF;
     letter-spacing: 0;
-    padding-top: 3px;
-    z-index: 0;
 }
 
 .Nameline {
+    font-family: 'Montserrat';
     font-size: 10px;
     color: #FFFFFF;
     letter-spacing: 0;
     line-height: 12px;
+}
+
+.Star{
+    position: absolute;
+    float: right;
+    right: 7px;
+    top: 10px;
 }
 
 .SVGContainer{
@@ -51,4 +65,34 @@
 .ProfileContainer{
     position: relative;
     float: right;
+}
+
+.ProfilePic{
+    position: absolute;
+    top: 16px;
+    right: 51px;
+}
+
+.Username {
+    font-size: 16px;
+    color: #3F306E;
+    letter-spacing: 0;
+}
+
+.Userpoints {
+    font-size: 40px;
+    color: #3F306E;
+    letter-spacing: 0;
+}
+
+.User{
+    font-family: 'Oswald';
+    text-align: left;
+}
+
+.Descriptor {
+    font-size: 10px;
+    color: #3F306E;
+    letter-spacing: 0;
+    line-height: 12px;
 }
