@@ -12,6 +12,14 @@ import { Home } from "./screens/home";
 import { Logout } from "./screens/logout";
 import { Register } from "./screens/register";
 import { ResetPassword } from "./screens/resetPassword";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { deepPurple } from "@material-ui/core/colors";
+const theme = createMuiTheme({
+  palette: {
+    primary: deepPurple
+  }
+});
+
 interface UserAuth {
   uid?: string;
   loggedIn: boolean;
@@ -36,6 +44,7 @@ function App() {
   });
   return (
     <div className="App">
+      <ThemeProvider theme={theme}>
       <AuthContext.Provider value={userAuth}>
         <Router>
           <PersistentDrawerRight/>
@@ -66,6 +75,7 @@ function App() {
           </div>
         </Router>
       </AuthContext.Provider>
+      </ThemeProvider>
     </div>
   );
 }

@@ -36,13 +36,13 @@ export const ResetPassword = (props: Props) => {
       <TextField
         id="outlined-basic"
         label="email"
-        variant="outlined"
+       
         type="email"
         onChange={e => setEmail(e.target.value)}
       
         value={email}
      /> <br /> <br />
-      <Button variant="contained" color="secondary" onClick={onResetPassword}>
+      <Button variant="contained" color="primary" onClick={onResetPassword}>
         Reset Password
       </Button>
         <br />
