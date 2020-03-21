@@ -1,0 +1,8 @@
+.avatarFrame {
+  width: 140px;
+  height: 140px;
+  border: 3px solid #ffffff;
+  border-radius: 40px;
+  object-fit: cover;
+  display: inline-block;
+}

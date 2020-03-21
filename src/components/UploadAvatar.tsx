@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { storage } from "firebase";
+import { Avatar } from "./Avatar";
 
 
 class ImageUpload extends Component<{onChange:(url:string)=>void}> {
@@ -90,11 +91,9 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
         </button>
         <br />
         <br />
-        <img
-          src={this.state.url || "https://via.placeholder.com/400x300"}
-          alt="Uploaded Images"
-          height="300"
-          width="400"
+        <Avatar
+          url={this.state.url || "https://via.placeholder.com/400x300"}
+         
         />
       </div>
     );
