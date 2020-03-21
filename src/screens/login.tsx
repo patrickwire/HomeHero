@@ -27,7 +27,7 @@ export const Login = (props: Props) => {
       <TextField
         id="outlined-basic"
         label="email"
-        variant="outlined"
+       
         type="email"
         onChange={e => setEmail(e.target.value)}
         value={email}
@@ -37,14 +37,14 @@ export const Login = (props: Props) => {
       <TextField
         id="outlined-basic"
         label="password"
-        variant="outlined"
+       
         type="password"
         onChange={e => setPassword(e.target.value)}
         value={password}
       />
       <br />
       <br />
-      <Button variant="contained" color="secondary" onClick={onLogin}>
+      <Button variant="contained" color="primary" onClick={onLogin}>
         Login
       </Button>
       <br></br>
