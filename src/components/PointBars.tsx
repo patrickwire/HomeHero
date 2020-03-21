@@ -14,7 +14,7 @@ interface Props{
 export const PointBars=(props:Props)=>{
     return(<div className="SVGContainer">
     <div className="Social">
-      <img src={banner_red}></img>
+      <img src={banner_orange}></img>
       <div className="PointContainer">
         <div className="Points">
           <b>{props.active}</b>
@@ -38,7 +38,7 @@ export const PointBars=(props:Props)=>{
       </div>
     </div>
     <div className="Behavior">
-      <img src={banner_orange}></img>
+      <img src={banner_red}></img>
       <div className="PointContainer">
         <div className="Points">
           <b>{props.help}</b>

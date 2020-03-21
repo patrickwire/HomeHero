@@ -14,6 +14,7 @@ import icon_star_purple from "../assets/icon_star_purple.svg";
 import { ProfileContainer } from "../components/ProfielContainer";
 import { PointBars } from "../components/PointBars";
 import { SocialMediaContainer } from "../components/socialmedia";
+import { ActionCard } from "../components/ActionCard";
 
 
 export const Home = () => {
@@ -28,13 +29,11 @@ export const Home = () => {
  const renderActions=(actions:Action[]):JSX.Element[]=>{
   return actions.map((action,idx)=>
   <div key={idx}>
-     <Button
-            onClick={() => {
-              updateTask(idx);
-            }}
-          >
-    {action.type}: {action.title}
-    </Button>
+    <ActionCard    type={action.type} title={action.title} counter={action.amount} points={action.points}       
+    onChange={value=>
+              updateTask(idx)
+            } />
+
     </div>)
  }
 
@@ -44,8 +43,6 @@ export const Home = () => {
     let newActions = [...actions];
     //@ts-ignore
     newActions[taskid]['amount'] += 1;
-     //@ts-ignore
-    newActions[taskid]['points'] += 500;
 
     firestore()
     .collection("users")
@@ -58,8 +55,8 @@ export const Home = () => {
 
   const addTask = () => {
     const newaction={
-      type: "health",
-      title: "Händewaschen",
+      type: "active",
+      title: "Mitbewohner Sandnegern",
       amount: 1,
       points: 500,
       date: moment().toISOString()
@@ -94,15 +91,13 @@ export const Home = () => {
   }, [userAuth]);
   
   useEffect(()=>{
-    console.log(1)
-    const s =actions.reduce((a, b) => {return a + (b['points'])}, 0)
     const active = actions['filter'](a => a['type']=='active');
-    const a = active.reduce((a, b) => {return a + (b['points'])}, 0)
+    const a = active.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
     const health = actions['filter'](a => a['type']=='health');
-    const hea = health.reduce((a, b) => {return a + (b['points'])}, 0)
+    const hea = health.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
     const help = actions['filter'](a => a['type']=='help');
-    const hel = help.reduce((a, b) => {return a + (b['points'])}, 0)
-    setStars(s);
+    const hel = help.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
+    setStars(a+hea+hel);
     setActive(a);
     setHealth(hea);
     setHelp(hel);
@@ -117,6 +112,7 @@ export const Home = () => {
         <SocialMediaContainer points={stars}/>
 
         <div className="TaskList">
+
           {renderActions(actions)}
           <Button
             onClick={() => {
@@ -124,6 +120,7 @@ export const Home = () => {
             }}
           >NEUER TASK</Button>
         </div>
+
 
     </div>
   );

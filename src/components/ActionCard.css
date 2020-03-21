@@ -1,0 +1,278 @@
+.ActionCardHelp {
+    background: #F7E6E8;
+    border-radius: 32px; 
+    width: 380px;
+    height: 164px;;
+    margin: auto;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.ActionCardActive {
+    background: #FEF7ED;
+    border-radius: 32px; 
+    width: 380px;
+    height: 164px;;
+    margin: auto;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.ActionCardHealth {
+    background: #E7F6F7;
+    border-radius: 32px; 
+    width: 380px;
+    height: 164px;;
+    margin: auto;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.HeaderHelp {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 12px;
+    color: #E7394C;
+    letter-spacing: 3px;
+    line-height: 24px;
+    text-align: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.HeaderActive {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 12px;
+    color: #FDB752;
+    letter-spacing: 3px;
+    line-height: 24px;
+    text-align: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.HeaderHealth {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 12px;
+    color: #41DAE8;
+    letter-spacing: 3px;
+    line-height: 24px;
+    text-align: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.PointsHelp {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #E7394C;
+    letter-spacing: 0.8px;
+    text-align: right;
+    line-height: 24px;
+    position: absolute;
+    right: 48px;
+    top: 20px;
+}
+
+.PointsActive {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #FDB752;
+    letter-spacing: 0.8px;
+    text-align: right;
+    line-height: 24px;
+    position: absolute;
+    right: 48px;
+    top: 20px;
+}
+
+.PointsHealth {
+    opacity: 0.8;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #41DAE8;
+    letter-spacing: 0.8px;
+    text-align: right;
+    line-height: 24px;
+    position: absolute;
+    right: 48px;
+    top: 20px;
+}
+
+.ActionCardStar {
+    margin-left: 100px;
+    right: 20px;
+    top: 20px;
+    width: 24px;
+    position: absolute;
+}
+
+.DescriptionHelp {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #65000B;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    left: 20px;
+    top: 48px;
+    text-align: left;
+}
+
+.DescriptionActive {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #6D2C00;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    left: 20px;
+    top: 48px;
+    text-align: left;
+}
+
+.DescriptionHealth {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    color: #00565E;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    left: 20px;
+    top: 48px;
+    text-align: left;
+}
+
+
+
+.CounterHelp {
+    font-family: 'Oswald';
+    font-size: 32px;
+    color: #65000B;
+    letter-spacing: 0.8px;
+    line-height: 48px;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    z-index: 1;
+}
+
+.CounterActive {
+    font-family: 'Oswald';
+    font-size: 32px;
+    color: #6D2C00;
+    letter-spacing: 0.8px;
+    line-height: 48px;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    z-index: 1;
+}
+
+.CounterHealth {
+    font-family: 'Oswald';
+    font-size: 32px;
+    color: #00565E;
+    letter-spacing: 0.8px;
+    line-height: 48px;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    z-index: 1;
+}
+
+
+.ActionCardIcon {
+    opacity: 0.5;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 120px;
+    z-index: 0;
+}
+
+.ButtonHelp {
+    background: #FFFFFF;
+    border: 1px solid rgba(231,57,76,0.80);
+    border-radius: 16px;
+    position: absolute;
+    color: #E7394C;
+    text-align: left;
+    width: 200px;
+    bottom: 12px;
+    right: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.ButtonHelp:active {
+    background: lightgrey;
+}
+
+.ButtonActive {
+    background: #FFFFFF;
+    border: 1px solid rgba(253,183,82,0.80);
+    border-radius: 16px;
+    position: absolute;
+    text-align: left;
+    color: #FDB752;
+    width: 200px;
+    bottom: 12px;
+    right: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.ButtonActive:active {
+    background: lightgrey;
+}
+
+.ButtonHealth {
+    background: #FFFFFF;
+    border: 1px solid rgba(65,218,232,0.80);
+    border-radius: 16px;
+    position: absolute;
+    text-align: left;
+    color: #41DAE8;
+    width: 200px;
+    bottom: 12px;
+    right: 20px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.ButtonHealth:active {
+    background: lightgrey;
+}
+
+.CheckArrow {
+    margin: 0;
+    right: 16px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
