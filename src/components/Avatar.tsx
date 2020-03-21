@@ -6,6 +6,6 @@ interface Props{
 
 export const Avatar=(props:Props)=> {  
 return(
-    <div  className="avatarFrame"><img className="avatarFrame" src={props.url}/></div>
+    <div  className="avatarFrame"><img src={props.url}/></div>
    );
   }

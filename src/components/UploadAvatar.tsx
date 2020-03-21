@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { storage } from "firebase";
 import { Avatar } from "./Avatar";
-
+import "./UploadAvatar.css";
 
 class ImageUpload extends Component<{onChange:(url:string)=>void}> {
     state = {
@@ -11,8 +11,10 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
       };
 
  
-  handleUpload = () => {
-    const { image } = this.state;
+  handleUpload = (image:any) => {
+   
+    
+    console.log(image)
     if(image!==null){
         /// @ts-ignore
         const uploadTask = storage().ref(`images/${image.name}`).put(image);
@@ -50,20 +52,14 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
   render() {
     return (
       <div className="center">
-          <br/>
-          <h2 className="green-text">React Firebase Image Uploader</h2>
-          <br/>
-          <br/>
-        <div className="row">
-          <progress value={this.state.progress} max="100" className="progress" />
-        </div>
-        <br />
-        <br />
-        <br />
+       <Avatar
+          url={this.state.url || "https://via.placeholder.com/400x300"}
+         
+        />
         <div className="file-field input-field">
           <div className="btn">
-            <span>File</span>
-            <input type="file"  accept="image/*" onChange={(e:any)=>{
+           
+            <input className="custom-file-input" type="file"  accept="image/*" onChange={(e:any)=>{
                 // @ts-ignore
                 if (e.target.files[0]) {
                     // @ts-ignore
@@ -71,6 +67,7 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
                  
                     if(image.size<1024*1024){
                         this.setState(() => ({ image }));
+                        this.handleUpload(image)
                     }else{
                     alert("sorry, to big( max 1M)")
                     
@@ -80,21 +77,13 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
             }} />
           </div>
           <div className="file-path-wrapper">
-            <input className="file-path validate" type="text" />
+           
           </div>
         </div>
-        <button
-          onClick={this.handleUpload}
-          className="waves-effect waves-light btn"
-        >
-          Upload
-        </button>
+       
         <br />
         <br />
-        <Avatar
-          url={this.state.url || "https://via.placeholder.com/400x300"}
-         
-        />
+       
       </div>
     );
   }

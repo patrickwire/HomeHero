@@ -1,0 +1,34 @@
+.custom-file-input::-webkit-file-upload-button {
+    display: none;
+  }
+  .custom-file-input{
+    outline: none;
+    margin-top: -100px;
+    margin-left: 300px;
+  }
+  .custom-file-input::before {
+    content: url(../assets/icon_camera.svg);
+    display: inline-flex;
+    background:#4424A8;
+   
+/* Sketch doesnt export gradient borders at this point */
+/* Sketch doesnt export gradient borders at this point */
+box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 3px 0 rgba(0,0,0,0.24);
+    border-radius: 28px;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    
+    width: 56px;
+    height: 56px;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
