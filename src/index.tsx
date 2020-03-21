@@ -6,6 +6,20 @@ import * as serviceWorker from './serviceWorker';
 // @ts-ignore
 if (window.cordova) {
     document.addEventListener('deviceready', () => {
+      var today = new Date();
+      var tomorrow = new Date();
+      tomorrow.setDate(today.getDate());
+      tomorrow.setHours(18);
+      tomorrow.setMinutes(0);
+      tomorrow.setSeconds(0);
+      var tomorrow_at_6_am = new Date(tomorrow);
+    // @ts-ignore  
+    window.cordova.plugins.notification.local.schedule({
+      id: 1,
+      text: "Sei ein Held und hol dir deine Sterne heute in der App",
+      firstAt: tomorrow_at_6_am,
+      every: "day" // "minute", "hour", "week", "month", "year"
+  })
         ReactDOM.render(<App />, document.getElementById('root'));
 
     }, false);
