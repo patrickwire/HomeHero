@@ -114,6 +114,7 @@ const unauthUserRouter=()=>{
               </Route>
             </Switch>
           </div>
+          <pwa-install></pwa-install>
         </Router>
 }
   return (

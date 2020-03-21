@@ -26,9 +26,10 @@ export const Register = () => {
             .collection("users")
             .doc(res.user?.uid)
             .set({ username,avatar });
+            history.push("/");
         });
 
-      history.push("/");
+    
     } catch (error) {
       alert("wrong login");
     }
@@ -40,8 +41,9 @@ export const Register = () => {
       <TextField
        
         label="username"
+        error={username.length>0&&password.length<3}
         onChange={e => setUsername(e.target.value)}
-      
+        helperText={username.length<3&&"Passwort zu kurz"}
         value={username}
       /> <br /> <br />
        <TextField
@@ -54,11 +56,12 @@ export const Register = () => {
         value={email}
       /> <br /> <br />
        <TextField
+        error={password.length>0&&password.length<6}
         label="password"
         type="password"
         onChange={e => setPassword(e.target.value)}
         value={password}
-        
+        helperText={password.length<6&&"Passwort zu kurz"}
       /> <br /> <br />
     
           <Checkbox
@@ -70,7 +73,7 @@ export const Register = () => {
       
       <br/>
       <br/>
-      <Button disabled={!agb}  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
+      <Button disabled={!agb||password.length<6||email.length<6||username.length<3}  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
       <br />
       <div className="RegisterLink">
         <Link className="Link" to="/login">Back to Login</Link>
