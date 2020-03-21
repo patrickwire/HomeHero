@@ -5,6 +5,7 @@ import { UserData } from "../interfaces/userData";
 
 export const Home=()=> {
     const [username,setUsername]=useState("")
+    const [avatar,setAvatar]=useState("")
     const userAuth=useContext(AuthContext)
     useEffect( ()=>{
         if(userAuth.uid){
@@ -12,11 +13,12 @@ export const Home=()=> {
                 if(snapshot&&snapshot.exists){
                     const data = snapshot.data() as UserData
                     setUsername(data.username)
+                    setAvatar(data.avatar)
                 }
                
              })
         }
         
     },[userAuth])
-return(<div><h2>Home</h2>{username!==""&&"hello "+username}</div>);
+return(<div><h2>Home</h2>{username!==""&&"hello "+username}<br/><img src={avatar}/></div>);
   }

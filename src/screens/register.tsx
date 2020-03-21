@@ -3,6 +3,7 @@ import { AuthContext } from "../App";
 import { useHistory, Link } from "react-router-dom";
 import { auth, firestore } from "firebase";
 import { TextField, Button } from "@material-ui/core";
+import ImageUpload from "../components/UploadAvatar";
 
 
 
@@ -11,6 +12,7 @@ export const Register = () => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [avatar, setAvatar] = React.useState("");
   const userAuth = React.useContext(AuthContext);
   const history = useHistory();
   const onRegister = () => {
@@ -22,7 +24,7 @@ export const Register = () => {
           firestore()
             .collection("users")
             .doc(res.user?.uid)
-            .set({ username });
+            .set({ username,avatar });
         });
 
       history.push("/");
@@ -33,7 +35,7 @@ export const Register = () => {
   return (
     <div>
       <h1>Register</h1>
-    
+      <ImageUpload onChange={(url)=>setAvatar(url)}/>
       <TextField
         id="outlined-basic"
         label="username"
