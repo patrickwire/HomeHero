@@ -13,6 +13,8 @@ import icon_star_white from "../assets/icon_star_white.svg";
 import icon_star_purple from "../assets/icon_star_purple.svg";
 import { ProfileContainer } from "../components/ProfielContainer";
 import { PointBars } from "../components/PointBars";
+import { SocialMediaContainer } from "../components/socialmedia";
+
 
 export const Home = () => {
   const [username, setUsername] = useState("");
@@ -52,14 +54,18 @@ export const Home = () => {
      
        <PointBars/>
         <ProfileContainer username={username} avatar={avatar}/>
-       
-        <Button
-          onClick={() => {
-            addTask();
-          }}
-        >
-          Add tasks
-        </Button>
+
+        <SocialMediaContainer />
+
+        <div className="TaskList">
+          <Button
+            onClick={() => {
+              addTask();
+            }}
+          >
+            Example Task Done
+          </Button>
+        </div>
     </div>
   );
 };

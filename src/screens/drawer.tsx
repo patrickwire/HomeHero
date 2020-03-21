@@ -22,6 +22,8 @@ import InfoIcon from '@material-ui/icons/Info';
 import {Link} from "react-router-dom";
 import {auth} from "firebase";
 import {AuthContext} from "../App";
+import logo_horizontal from "../assets/logo_horizontal.svg"
+
 
 const drawerWidth = 240;
 interface Props{}
@@ -103,14 +105,16 @@ export const PersistentDrawerRight=(props:Props)=> {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        style={{ backgroundColor: '#4424A8' }}
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >
         <Toolbar>
+          <img style={{paddingTop: '5px', paddingBottom: '5px'}} src={logo_horizontal}></img>
           <Typography variant="h6" noWrap className={classes.title}>
-            HomeHero
+            
           </Typography>
           <IconButton
             color="inherit"
