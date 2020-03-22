@@ -67,6 +67,7 @@ export const NewCard=(props:Props)=>{
                 fullWidth
                 onChange={e => setTitle(e.target.value)}
                 value={title}
+                helperText={title.length<3&&"Titel zu kurz"}
             />
             <FormControl style={{paddingTop: '10px'}} component="fieldset">
                 <RadioGroup color="secondary" aria-label="gender" name="gender1" value={type} onChange={e => setType(e.target.value)}>
