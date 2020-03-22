@@ -33,7 +33,6 @@ export const SocialMediaContainer=(props:Props)=>{
                 <img style={{ height: "16px" }} src={icon_star_white}></img>
             </div>
            
-
         </div>
         <Dialog
         open={open}
