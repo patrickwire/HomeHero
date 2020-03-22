@@ -19,6 +19,7 @@ interface Props {
   counter: any;
   title: any;
   points: any;
+  enabled: any;
   children?: JSX.Element;
   onChange?: (value: string) => void;
 }
@@ -73,7 +74,7 @@ export const ActionCard = (props: Props) => {
         </Fade>
         <img className="ActionCardIcon" src={icon_social}></img>
         <div
-          className="ButtonHelp"
+          className={props.enabled?'ButtonHelp':'ButtonDisabled'}
           style={{ zIndex: 1000, display: props.onChange ? "block" : "none" }}
           onClick={() => {
             setFade(false);
@@ -88,7 +89,7 @@ export const ActionCard = (props: Props) => {
           }}
         >
           <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
-          <img className="CheckArrow" src={icon_arrow_red}></img>
+          <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_red}></img>
         </div>
       </div>
     );
@@ -114,7 +115,7 @@ export const ActionCard = (props: Props) => {
         </Fade>
         <img className="ActionCardIcon" src={icon_behavior}></img>
         <div
-          className="ButtonActive"
+          className={!props.enabled?'ButtonDisabled':'ButtonActive'}
           style={{ zIndex: 1000, display: props.onChange ? "block" : "none" }}
           onClick={() => {
             setFade(false);
@@ -129,7 +130,7 @@ export const ActionCard = (props: Props) => {
           }}
         >
           <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
-          <img className="CheckArrow" src={icon_arrow_orange}></img>
+          <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_orange}></img>
         </div>
       </div>
     );
@@ -155,7 +156,7 @@ export const ActionCard = (props: Props) => {
         </Fade>
         <img className="ActionCardIcon" src={icon_hygiene}></img>
         <div
-          className="ButtonHealth"
+          className={!props.enabled?'ButtonDisabled':'ButtonHealth'}
           style={{ zIndex: 1000, display: props.onChange ? "block" : "none" }}
           onClick={() => {
             setFade(false);
@@ -170,7 +171,7 @@ export const ActionCard = (props: Props) => {
           }}
         >
           <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
-          <img className="CheckArrow" src={icon_arrow_blue}></img>
+          <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_blue}></img>
         </div>
       </div>
     );
