@@ -77,7 +77,12 @@ export const Profile = (props: Props) => {
  const renderActions=(actions:Action[]):JSX.Element[]=>{
     return actions.map((action,idx)=>
     <div key={idx}>
-      <ActionCard   type={action.type} title={action.title} counter={action.amount} points={action.points}      
+      <ActionCard   
+      type={action.type} 
+      enabled={true}
+      title={action.title} 
+      counter={action.amount} 
+      points={action.points}      
      />
       </div>)
    }

@@ -38,7 +38,11 @@ export const Home = () => {
  const renderActions=(actions:Action[], type: string):JSX.Element[]=>{
   return actions.map((action,idx)=>
   <div key={idx}>
-    <ActionCard    type={action.type} title={action.title} counter={action.amount || 0} points={action.points}      
+    <ActionCard    
+    type={action.type} 
+    title={action.title} 
+    enabled={!action.lastUpdate || moment().diff(action.lastUpdate)>(1000*24*60*60)}
+    counter={action.amount || 0} points={action.points}      
     onChange={value=>
               updateTask(idx, type)
             } />
@@ -71,7 +75,9 @@ export const Home = () => {
     // Else Update the existing action
     let newActions = [...actions];
     //@ts-ignore
-    newActions[taskid]['amount'] += 1;
+    newActions[taskid]['amount']? newActions[taskid]['amount']+=1:newActions[taskid]['amount']=1;
+    //@ts-ignore
+    newActions[taskid]['lastUpdate']=moment().toISOString();
 
     firestore()
     .collection("users")
@@ -118,7 +124,6 @@ export const Home = () => {
             setimportantActions(data.actions?notDoneImportant:important);
             // @ts-ignore
             setAction(data.actions||[]);
-
             //Community Actions
             // @ts-ignore
             const community = data.actions?actionsData.filter(e=>data.actions.filter(a=>e.title==a.title).length==0):[]
