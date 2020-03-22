@@ -88,7 +88,7 @@ export const ActionCard = (props: Props) => {
             }, 1000);
           }}
         >
-          <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
+          <span style={{ marginLeft: "16px", color: "#E7394C" }}>HEUTE ERLEDIGT</span>
           <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_red}></img>
         </div>
       </div>
@@ -129,7 +129,7 @@ export const ActionCard = (props: Props) => {
             }, 1000);
           }}
         >
-          <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
+          <span style={{ marginLeft: "16px", color: "#FDB752" }}>HEUTE ERLEDIGT</span>
           <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_orange}></img>
         </div>
       </div>
@@ -170,7 +170,7 @@ export const ActionCard = (props: Props) => {
             }, 1000);
           }}
         >
-          <span style={{ marginLeft: "16px" }}>HEUTE ERLEDIGT</span>
+          <span style={{ marginLeft: "16px", color: '#41DAE8' }}>HEUTE ERLEDIGT</span>
           <img hidden={!props.enabled} className="CheckArrow" src={icon_arrow_blue}></img>
         </div>
       </div>

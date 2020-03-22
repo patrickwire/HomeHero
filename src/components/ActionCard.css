@@ -275,11 +275,9 @@
 
 .ButtonDisabled {
     pointer-events: none;
-    background: lightgrey;
     border-radius: 16px;
     position: absolute;
     text-align: left;
-    color: grey;
     width: 200px;
     bottom: 12px;
     right: 20px;
