@@ -5,6 +5,7 @@ import { Dialog, DialogTitle, DialogActions, Button, DialogContent, DialogConten
 import React from "react";
 
 
+
 interface Props {points: number,uid?:string}
 export const SocialMediaContainer=(props:Props)=>{
     const [open, setOpen] = React.useState(false);
@@ -15,10 +16,8 @@ export const SocialMediaContainer=(props:Props)=>{
   
     const handleClose = () => {
         console.log(1);
-        
       setOpen(false);
     };
-    console.log(open);
     // @ts-ignore
     const canShare=navigator.share
     return(

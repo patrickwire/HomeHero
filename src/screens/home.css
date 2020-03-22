@@ -152,3 +152,9 @@
     margin-left: 17px;
 }
 
+.fab {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999999;
+}
