@@ -104,7 +104,7 @@ return(
           <Button variant="contained" color="primary"  onClick={()=>{history.push("/")}}>Jetz selber mitmachen</Button>
         <br/>
         <br/>
-        <div>
+        <div style={{background:"#FFFFFF",paddingTop:50}}>
           <div className="UsersWorldwide">{amountUsers} BENUTZER WELTWEIT</div>
           <div className="CommunityIdeas">COMMUNITY IDEEN</div>
           {renderCommunityActions()}

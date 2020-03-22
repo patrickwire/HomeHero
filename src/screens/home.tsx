@@ -172,7 +172,7 @@ export const Home = () => {
           {renderActions(actions, 'user')}
           {renderActions(importantActions, 'important')}
 
-        <div>
+        <div style={{background:"#FFFFFF",paddingTop:50}}>
           <div className="UsersWorldwide">{amountUsers+596} BENUTZER WELTWEIT</div>
           <div className="CommunityIdeas">COMMUNITY IDEEN</div>
           {renderCommunityActions(communityActions)}
