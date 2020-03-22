@@ -162,7 +162,7 @@ export const PersistentDrawerRight=(props:Props)=> {
               <ListItemText primary="Logout" />
             </ListItem>
           </Link>
-          <Link className="Link" to="/profile">
+          <Link className="Link" to="/">
             <ListItem button key="Profile">
               <ListItemIcon><PersonIcon /></ListItemIcon>
               <ListItemText primary="Profile" />

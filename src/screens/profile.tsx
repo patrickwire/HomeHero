@@ -3,9 +3,10 @@ import { PointBars } from '../components/PointBars';
 import { ProfileContainer } from '../components/ProfielContainer';
 import { SocialMediaContainer } from '../components/socialmedia';
 import { ActionCard } from '../components/ActionCard';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { firestore } from 'firebase';
 import { UserData } from '../interfaces/userData';
+import { Button } from '@material-ui/core';
 
 interface Props {}
 
@@ -18,6 +19,7 @@ export const Profile = (props: Props) => {
     const [help, setHelp] = useState(0);
     const [health, setHealth] = useState(0);
     const {uid}=useParams();
+    const history=useHistory()
     useEffect(() => {
         console.log(uid);
         
@@ -42,6 +44,18 @@ export const Profile = (props: Props) => {
             });
         
       }, []);
+      useEffect(()=>{
+        const active = actions['filter'](a => a['type']=='active');
+        const a = active.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
+        const health = actions['filter'](a => a['type']=='health');
+        const hea = health.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
+        const help = actions['filter'](a => a['type']=='help');
+        const hel = help.reduce((a, b) => {return a + (b['amount']*b['points'])}, 0)
+        setStars(a+hea+hel);
+        setActive(a);
+        setHealth(hea);
+        setHelp(hel);
+      },[actions])
     // @ts-ignore
  const renderActions=(actions:Action[]):JSX.Element[]=>{
     return actions.map((action,idx)=>
@@ -55,11 +69,19 @@ return(
         <PointBars active={active} health={health} help={help} />
         <ProfileContainer username={username} avatar={avatar} points={stars}/>
 
-        <SocialMediaContainer points={stars}/>
+       
 
         <div className="TaskList">
-
+        
           {renderActions(actions)}
+          <br/>
+        <br/>
+          <Button variant="contained" color="primary"  onClick={()=>{history.push("/")}}>Jetz selber mitmachen</Button>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
        
         </div>
     </div>

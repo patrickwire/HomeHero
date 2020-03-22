@@ -122,7 +122,7 @@ export const Home = () => {
        <PointBars active={active} health={health} help={help} />
         <ProfileContainer username={username} avatar={avatar} points={stars}/>
 
-        <SocialMediaContainer points={stars}/>
+        <SocialMediaContainer  uid={userAuth.uid}  points={stars}/>
 
         <div className="TaskList">
 
