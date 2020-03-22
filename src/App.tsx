@@ -72,6 +72,7 @@ const authUserRouter=()=>{
               <Route path="/terms">
                 <Terms />
               </Route>
+              <Route path="/user/:uid" children={<Profile />} />
               <Route path="/">
                 <Home />
               </Route>
@@ -109,12 +110,14 @@ const unauthUserRouter=()=>{
               <Route path="/resetPassword">
                 <ResetPassword />
               </Route>
+              <Route path="/user/:uid" children={<Profile />} />
+
               <Route path="/">
               <Onboarding />
               </Route>
             </Switch>
           </div>
-          <pwa-install></pwa-install>
+          
         </Router>
 }
   return (

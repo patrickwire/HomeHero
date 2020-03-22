@@ -21,7 +21,7 @@ interface Props {
     title: any;
     points: any;
     children?:JSX.Element;
-    onChange:(value:string)=>void;
+    onChange?:(value:string)=>void;
 }
 
 function pad(number: any, length: any) {
@@ -42,7 +42,8 @@ export const ActionCard=(props:Props)=>{
                 <span className="DescriptionHelp">{props.title}</span>
                 <span className="CounterHelp">{pad(props.counter,4)}</span>
                 <img className="ActionCardIcon" src={icon_social}></img>
-                <div className="ButtonHelp" style={{zIndex:1000}} onClick={() => {
+                <div className="ButtonHelp" style={{zIndex:1000,display:props.onChange?"block":"none"}} onClick={() => {
+                // @ts-ignore
                 props.onChange("1")
                 }}>
                     <span style={{marginLeft: '16px'}}>HEUTE ERLEDIGT</span>
@@ -60,7 +61,8 @@ export const ActionCard=(props:Props)=>{
             <span className="DescriptionHelp">{props.title}</span>
             <span className="CounterActive">{pad(props.counter,4)}</span>
             <img className="ActionCardIcon" src={icon_behavior}></img>
-            <div className="ButtonActive" style={{zIndex:1000}} onClick={() => {
+            <div className="ButtonActive" style={{zIndex:1000,display:props.onChange?"block":"none"}} onClick={() => {
+            // @ts-ignore
             props.onChange("1")
             }}>
                 <span style={{marginLeft: '16px'}}>HEUTE ERLEDIGT</span>
@@ -78,7 +80,8 @@ export const ActionCard=(props:Props)=>{
             <span className="DescriptionHealth">{props.title}</span>
             <span className="CounterHealth">{pad(props.counter,4)}</span>
             <img className="ActionCardIcon" src={icon_hygiene}></img>
-            <div className="ButtonHealth" style={{zIndex:1000}} onClick={() => {
+            <div className="ButtonHealth" style={{zIndex:1000,display:props.onChange?"block":"none"}} onClick={() => {
+            // @ts-ignore
             props.onChange("1")
             }}>
                 <span style={{marginLeft: '16px'}}>HEUTE ERLEDIGT</span>
