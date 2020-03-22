@@ -44,6 +44,8 @@ function App(props:any) {
   const [basename,setBasename]=useState("/intro")
   const [userAuth, setUserAuth] = useState({ uid: "", loggedIn: false });
   auth().onAuthStateChanged(a => {
+    console.log(a);
+    
     if (a?.uid && userAuth.uid !== a?.uid) {
       setUserAuth({ uid: a?.uid || "", loggedIn: true });
       setBasename("/")

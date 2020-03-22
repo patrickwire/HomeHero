@@ -22,16 +22,20 @@ export const Register = () => {
       auth()
         .createUserWithEmailAndPassword(email, password)
         .then((res) => {
+          console.log(["uid",res.user?.uid]);
+          
           firestore()
             .collection("users")
             .doc(res.user?.uid)
             .set({ username,avatar });
             history.push("/");
+        }).catch((error)=>{
+          alert(error.code);
         });
 
     
     } catch (error) {
-      alert("wrong login");
+      alert(error.code);
     }
   };
   return (
@@ -43,7 +47,7 @@ export const Register = () => {
         label="username"
         error={username.length>0&&password.length<3}
         onChange={e => setUsername(e.target.value)}
-        helperText={username.length<3&&"Passwort zu kurz"}
+        helperText={username.length<3&&"Username zu kurz"}
         value={username}
       /> <br /> <br />
        <TextField
@@ -73,7 +77,7 @@ export const Register = () => {
       
       <br/>
       <br/>
-      <Button disabled={!agb||password.length<6||email.length<6||username.length<3}  variant="contained" color="primary"  onClick={onRegister}>Registrieren</Button>
+      <Button disabled={avatar==""||!agb||password.length<6||email.length<6||username.length<3}  variant="contained" color="primary"  onClick={onRegister}>Registrieren</Button>
       <br />
       <div className="RegisterLink">
         <Link className="Link" to="/login">Zurück zu Login</Link>
