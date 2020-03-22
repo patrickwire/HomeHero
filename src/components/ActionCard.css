@@ -9,7 +9,9 @@
     right: 0;
     position: relative;
 }
-
+.shadow{
+    box-shadow: 0 2px 4px 0 rgba(109,44,0,0.20);
+}
 .ActionCardActive {
     background: #FEF7ED;
     border-radius: 32px; 
