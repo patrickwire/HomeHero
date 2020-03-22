@@ -5,8 +5,10 @@ import { SocialMediaContainer } from '../components/socialmedia';
 import { ActionCard } from '../components/ActionCard';
 import { useParams, useHistory } from 'react-router-dom';
 import { firestore } from 'firebase';
-import { UserData } from '../interfaces/userData';
+import { UserData, Action } from '../interfaces/userData';
 import { Button } from '@material-ui/core';
+import { CommunityActionCard } from '../components/CommunityActionCard';
+import { actionsData } from '../data/actions';
 
 interface Props {}
 
@@ -18,6 +20,8 @@ export const Profile = (props: Props) => {
     const [active, setActive] = useState(0);
     const [help, setHelp] = useState(0);
     const [health, setHealth] = useState(0);
+    const [amountUsers, setAmountUsers] = useState(0);
+
     const {uid}=useParams();
     const history=useHistory()
     useEffect(() => {
@@ -42,6 +46,19 @@ export const Profile = (props: Props) => {
                 setUsername("NUTZER EXISTIERT NICHT")
               }
             });
+            firestore()
+            .collection("data")
+            .doc("stats")
+            .get()
+            .then(snapshot => {
+              if (snapshot && snapshot.exists) {
+                const data = snapshot.data()
+                console.log(data);
+               // @ts-ignore 
+               setAmountUsers(data.amountUsers)
+              
+              }
+            });
         
       }, []);
       useEffect(()=>{
@@ -64,6 +81,14 @@ export const Profile = (props: Props) => {
      />
       </div>)
    }
+   const renderCommunityActions=():JSX.Element[]=>{
+    return actionsData.map((action,idx)=>
+    <div key={idx}>
+          <CommunityActionCard action={action} 
+         />
+      </div>)
+   }
+  
 return(
     <div>
         <PointBars active={active} health={health} help={help} />
@@ -79,11 +104,19 @@ return(
           <Button variant="contained" color="primary"  onClick={()=>{history.push("/")}}>Jetz selber mitmachen</Button>
         <br/>
         <br/>
+        <div>
+          <div className="UsersWorldwide">{amountUsers} BENUTZER WELTWEIT</div>
+          <div className="CommunityIdeas">COMMUNITY IDEEN</div>
+          {renderCommunityActions()}
+        </div>
+        </div>
+
+
         <br/>
         <br/>
         <br/>
        
-        </div>
+       
     </div>
 );
 
