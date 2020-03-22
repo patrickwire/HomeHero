@@ -19,7 +19,12 @@ import { Onboarding } from "./screens/onboarding";
 import { Terms } from "./screens/terms";
 const theme = createMuiTheme({
   palette: {
-    primary: deepPurple
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#4424A8',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
   }
 });
 

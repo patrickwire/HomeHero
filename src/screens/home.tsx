@@ -16,7 +16,9 @@ import { PointBars } from "../components/PointBars";
 import { SocialMediaContainer } from "../components/socialmedia";
 import { ActionCard } from "../components/ActionCard";
 import { CommunityActionCard } from "../components/CommunityActionCard";
-import { actionsData } from "../data/actions"
+import { actionsData } from "../data/actions";
+import { NewCard } from "../components/newCard";
+
 
 
 
@@ -161,6 +163,9 @@ export const Home = () => {
         <ProfileContainer username={username} avatar={avatar} points={stars}/>
 
         <SocialMediaContainer  uid={userAuth.uid}  points={stars}/>
+
+        <NewCard onChange={value => {addTask(value, 0)}}/>
+
 
         <div className="TaskList">
 
