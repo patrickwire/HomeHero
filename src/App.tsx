@@ -182,17 +182,17 @@ function About() {
         <strong>
           <span>Impressum</span>
         </strong>
-      </p>{" "}
+      </p>
       <p>
         <strong>Heldenzeit App</strong>
-      </p>{" "}
+      </p>
       <p>Inhaber: Patrick Müller</p>
       <p>
         Clara-Schumann-Str 2<br /> 73092 Heiningen
         <br /> Deutschland
-      </p>{" "}
+      </p>
       <p> </p> <p>Mail: mp@floatec.de</p>
-      <p> </p>{" "}
+      <p> </p>
       <p>
         Die Europ&auml;ische Kommission stellt eine Plattform zur
         Online-Streitbeilegung (OS) bereit, die Sie hier finden
