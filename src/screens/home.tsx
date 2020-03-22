@@ -67,13 +67,12 @@ export const Home = () => {
   const updateTask = (taskid: any, type: string) => {
     // If important actions add it to the users Actions List
     if (type == 'important') {
-      console.log('important action added');
       //@ts-ignore
       importantActions[taskid]['lastUpdate']=moment().toISOString();
       addTask(importantActions[taskid], 1);
       const newimportant = [...importantActions];
-      delete newimportant[taskid];
-      setimportantActions(newimportant);
+      const without= newimportant.filter((e,idx)=>idx!==taskid);
+      setimportantActions(without);
       return;
     }
 
@@ -98,6 +97,7 @@ export const Home = () => {
       type: action.type,
       title: action.title,
       amount: amount,
+      lastUpdate: action.lastUpdate?action.lastUpdate:0,
       points: action.points,
       date: moment().toISOString()
     }
@@ -130,7 +130,7 @@ export const Home = () => {
             // @ts-ignore
             setAction(data.actions||[]);
             //Community Actions
-            const allactions = [...data.actions,important]
+            const allactions = data.actions?[...data.actions,...important]:important;
             // @ts-ignore
             const community = allactions?actionsData.filter(e=>allactions.filter(a=>e.title==a.title).length==0):[]
             // @ts-ignore
