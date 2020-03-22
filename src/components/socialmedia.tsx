@@ -46,7 +46,7 @@ export const SocialMediaContainer=(props:Props)=>{
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             Schicke diesen link einfach an deine freunde oder share in via facebook oder whatsapp.
-            <Chip
+            <br/><br/><Chip style={{maxWidth:"100%"}}
         onClick={canShare?()=>{
           
                 // @ts-ignore
