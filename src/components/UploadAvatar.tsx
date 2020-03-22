@@ -44,7 +44,7 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
           .getDownloadURL()
           .then(url => {
             this.setState({ url });
-            this.props.onChange(url)
+            this.props.onChange(url.replace(".jpg","_140x140.jpg"))
           });
       }
     );
@@ -68,11 +68,11 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
                     // @ts-ignore
                     const image = e.target.files[0];
                  
-                    if(image.size<1024*1024){
+                    if(image.size<1024*1024*10){
                         this.setState(() => ({ image }));
                         this.handleUpload(image)
                     }else{
-                    alert("sorry, to big( max 1M)")
+                    alert("sorry, to big( max 10M)")
                     
                     }
                     
