@@ -15,6 +15,9 @@ import { ProfileContainer } from "../components/ProfielContainer";
 import { PointBars } from "../components/PointBars";
 import { SocialMediaContainer } from "../components/socialmedia";
 import { ActionCard } from "../components/ActionCard";
+import { CommunityActionCard } from "../components/CommunityActionCard";
+import { actionsData } from "../data/actions"
+
 
 
 export const Home = () => {
@@ -25,15 +28,24 @@ export const Home = () => {
   const [active, setActive] = useState(0);
   const [help, setHelp] = useState(0);
   const [health, setHealth] = useState(0);
+
 // @ts-ignore
  const renderActions=(actions:Action[]):JSX.Element[]=>{
   return actions.map((action,idx)=>
   <div key={idx}>
-    <ActionCard    type={action.type} title={action.title} counter={action.amount} points={action.points}       
+    <ActionCard    type={action.type} title={action.title} counter={action.amount} points={action.points}      
     onChange={value=>
               updateTask(idx)
             } />
+    </div>)
+ }
 
+ //@ts-ignore
+ const renderCommunityActions=(actions:Action[]):JSX.Element[]=>{
+  return actionsData.map((action,idx)=>
+  <div key={idx}>
+        <CommunityActionCard action={action} 
+        onChange={value=> addTask(action)}/>
     </div>)
  }
 
@@ -53,12 +65,12 @@ export const Home = () => {
     setAction(newActions);
   }
 
-  const addTask = () => {
+  const addTask = (action: any) => {
     const newaction={
-      type: "active",
-      title: "Mitbewohner Sandnegern",
+      type: action.type,
+      title: action.title,
       amount: 1,
-      points: 500,
+      points: action.points,
       date: moment().toISOString()
     }
     firestore()
@@ -89,6 +101,7 @@ export const Home = () => {
         });
     }
   }, [userAuth]);
+
   
   useEffect(()=>{
     const active = actions['filter'](a => a['type']=='active');
@@ -116,10 +129,17 @@ export const Home = () => {
           {renderActions(actions)}
           <Button
             onClick={() => {
-              addTask();
+              console.log('TODO: Adding new Task');
             }}
           >NEUER TASK</Button>
+
+        <div>
+          <div className="UsersWorldwide">9999999 BENUTZER WELTWEIT</div>
+          <div className="CommunityIdeas">COMMUNITY IDEEN</div>
+          {renderCommunityActions(actionsData)}
         </div>
+        </div>
+
 
 
     </div>
