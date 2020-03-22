@@ -23,6 +23,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { deepPurple } from "@material-ui/core/colors";
 import { Onboarding } from "./screens/onboarding";
 import { Terms } from "./screens/terms";
+import { ChangeAvatar } from "./screens/changeAvatar";
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -82,6 +83,9 @@ function App(props: any) {
             </Route>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/changeAvatar">
+              <ChangeAvatar />
             </Route>
             <Route path="/profile">
               <Profile />
