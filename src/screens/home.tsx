@@ -130,7 +130,7 @@ export const Home = () => {
             // @ts-ignore
             setAction(data.actions||[]);
             //Community Actions
-            const allactions = [...data.actions,important]
+            const allactions = data.actions?[...data.actions,...important]:important;
             // @ts-ignore
             const community = allactions?actionsData.filter(e=>allactions.filter(a=>e.title==a.title).length==0):[]
             // @ts-ignore
