@@ -33,6 +33,10 @@ export const Home = () => {
   const [help, setHelp] = useState(0);
   const [health, setHealth] = useState(0);
   const [amountUsers, setAmountUsers] = useState(0);
+  const [communityFilter, setCFilter] = useState('all');
+  const [comActionsFiltered, setCAFiltered] = useState([]);
+
+
 
 // @ts-ignore
  const renderActions=(actions:Action[], type: string):JSX.Element[]=>{
@@ -56,7 +60,13 @@ export const Home = () => {
         <CommunityActionCard action={action} 
         onChange={value=> {
           addTask(action, 0);
-          delete communityActions[idx];
+          const newcommunity = [...communityActions];
+          //@ts-ignore
+          const without = newcommunity.filter((e)=>e.title!==action.title);
+          setCommunityActions(without);
+          //@ts-ignore
+          const withoutFiltered = comActionsFiltered.filter((e)=>e.title!==action.title);
+          setCAFiltered(withoutFiltered);
         }
           }/>
     </div>)
@@ -135,6 +145,8 @@ export const Home = () => {
             const community = allactions?actionsData.filter(e=>allactions.filter(a=>e.title==a.title).length==0):[]
             // @ts-ignore
             setCommunityActions(community);
+            // @ts-ignore
+            setCAFiltered(community);
           }
         });
         firestore()
@@ -167,6 +179,15 @@ export const Home = () => {
     setHelp(hel);
   },[actions])
 
+  const filterCommunityActions = (filter: string) => {
+    if(filter=='all') {setCAFiltered(communityActions);}
+    else {
+      let filtered = communityActions.filter(a=>a['type']==filter);
+      setCAFiltered(filtered);
+    }
+
+  }
+
   return (
     <div className="homescreen">
      
@@ -186,7 +207,33 @@ export const Home = () => {
         <div style={{background:"#FFFFFF",paddingTop:50}}>
           <div className="UsersWorldwide">{amountUsers+596} BENUTZER WELTWEIT</div>
           <div className="CommunityIdeas">COMMUNITY IDEEN</div>
-          {renderCommunityActions(communityActions)}
+          <div className="textPurple">
+          <Button className="textPurple"
+            style={communityFilter=='all'?{textDecoration:'underline'}:{textDecoration:'none'}}
+            onClick={() => {
+              setCFilter('all');
+              filterCommunityActions('all');
+            }}>ALLE</Button>
+          <Button className="textPurple"
+            style={communityFilter=='health'?{textDecoration:'underline'}:{textDecoration:'none'}}
+            onClick={() => {
+              setCFilter('health');
+              filterCommunityActions('health');
+            }}>GESUNDHEIT</Button>
+            <Button className="textPurple"
+            style={communityFilter=='help'?{textDecoration:'underline'}:{textDecoration:'none'}}
+            onClick={() => {
+              setCFilter('help');
+              filterCommunityActions('help');
+            }}>HELFEN</Button>
+            <Button className="textPurple"
+            style={communityFilter=='active'?{textDecoration:'underline'}:{textDecoration:'none'}}
+            onClick={() => {
+              setCFilter('active');
+              filterCommunityActions('active');
+            }}>Aktiv</Button>
+            </div>
+          {renderCommunityActions(comActionsFiltered)}
         </div>
         </div>
     </div>
