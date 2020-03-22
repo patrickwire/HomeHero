@@ -67,6 +67,8 @@ export const CommunityActionCard=(props:Props)=>{
       }, [props]);
     
         if(props.action.type == 'help'){
+            console.log(props.action);
+            
         return(
         <div style={{marginTop: '20px'}} className="ActionCardHelp">
             <span className="PointsHelp">{props.action.points}</span>
@@ -75,7 +77,7 @@ export const CommunityActionCard=(props:Props)=>{
             <span className="ActionCardUserName" style={{color: '#65000B'}}>{props.action.username ? props.action.username : 'ANNELIESE'}</span>
             <span className="HeaderHelpCommunity" style={{color: '#E7394C'}}>HELFEN</span>
             <span className="DescriptionHelpCommunity" style={{color: '#65000B'}}>{props.action.title}</span>
-            <span className="CounterHelp">{pad(815,4)}</span>
+            <span className="CounterHelp">{pad(1||0,4)}</span>
             <img className="ActionCardIcon" src={icon_social}></img>
             <div className="ButtonHelp"  style={{display:props.onChange?"block":"none"}} onClick={() => {
                     // @ts-ignore
@@ -96,7 +98,7 @@ export const CommunityActionCard=(props:Props)=>{
                 <span className="ActionCardUserName" style={{color: '#6D2C00'}}>{props.action.username ? props.action.username : 'ANNELIESE'}</span>
                 <span className="HeaderHelpCommunity" style={{color: '#FDB752'}}>AKTIV BLEIBEN</span>
                  <span className="DescriptionHelpCommunity" style={{color: '#6D2C00'}}>{props.action.title}</span>
-                <span className="CounterActive">{pad(815,4)}</span>
+                <span className="CounterActive">{pad(props.action.amountUsed||0,4)}</span>
                 <img className="ActionCardIcon" src={icon_behavior}></img>
                 <div className="ButtonActive" style={{display:props.onChange?"block":"none"}} onClick={() => {
                     // @ts-ignore
@@ -117,7 +119,7 @@ export const CommunityActionCard=(props:Props)=>{
                 <span className="ActionCardUserName" style={{color: '#00565E'}}>{props.action.username ? props.action.username : 'ANNELIESE'}</span>
                 <span className="HeaderHelpCommunity" style={{color: '#41DAE8'}}>GESUNDHEIT</span>
                 <span className="DescriptionHelpCommunity" style={{color: '#00565E'}}>{props.action.title}</span>
-                <span className="CounterHealth">{pad(815,4)}</span>
+                <span className="CounterHealth">{pad(props.action.amountUsed||0,4)}</span>
                 <img className="ActionCardIcon" src={icon_hygiene}></img>
                 <div className="ButtonHealth"  style={{display:props.onChange?"block":"none"}} onClick={() => {
                     // @ts-ignore
