@@ -58,6 +58,7 @@ export const NewCard=(props:Props)=>{
               Beschreibe deine Idee in einem Satz
           </DialogContentText>
             <TextField
+                error={title.length<3}
                 id="outlined-basic"
                 label="Deine Idee"
                 multiline={true}
@@ -77,7 +78,7 @@ export const NewCard=(props:Props)=>{
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={saveAction} color="primary">
+          <Button disabled={title.length<3} onClick={saveAction} color="primary">
             Speichern
           </Button>
         </DialogActions>
