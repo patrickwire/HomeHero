@@ -28,6 +28,7 @@ export const Home = () => {
   const [active, setActive] = useState(0);
   const [help, setHelp] = useState(0);
   const [health, setHealth] = useState(0);
+  const [amountUsers, setAmountUsers] = useState(0);
 
 // @ts-ignore
  const renderActions=(actions:Action[]):JSX.Element[]=>{
@@ -99,6 +100,19 @@ export const Home = () => {
           
           }
         });
+        firestore()
+        .collection("data")
+        .doc("stats")
+        .get()
+        .then(snapshot => {
+          if (snapshot && snapshot.exists) {
+            const data = snapshot.data()
+            console.log(data);
+           // @ts-ignore 
+           setAmountUsers(data.amountUsers)
+          
+          }
+        });
     }
   }, [userAuth]);
 
@@ -134,7 +148,7 @@ export const Home = () => {
           >NEUER TASK</Button>
 
         <div>
-          <div className="UsersWorldwide">9999999 BENUTZER WELTWEIT</div>
+          <div className="UsersWorldwide">{amountUsers} BENUTZER WELTWEIT</div>
           <div className="CommunityIdeas">COMMUNITY IDEEN</div>
           {renderCommunityActions(actionsData)}
         </div>

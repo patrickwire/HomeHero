@@ -19,7 +19,7 @@ import avatar_preview from "../assets/avatar_preview.svg"
 
 interface Props {
     action: any;
-    onChange:(value:string)=>void;
+    onChange?:(value:string)=>void;
 }
 
 function pad(number: any, length: any) {
@@ -77,9 +77,10 @@ export const CommunityActionCard=(props:Props)=>{
             <span className="DescriptionHelpCommunity" style={{color: '#65000B'}}>{props.action.title}</span>
             <span className="CounterHelp">{pad(815,4)}</span>
             <img className="ActionCardIcon" src={icon_social}></img>
-            <div className="ButtonHelp" style={{zIndex:1000}} onClick={() => {
-                props.onChange("1");
-            }}>
+            <div className="ButtonHelp"  style={{display:props.onChange?"block":"none"}} onClick={() => {
+                    // @ts-ignore
+                    props.onChange("1");
+                }}>
                 <span style={{marginLeft: '16px'}}>HINZUFÜGEN</span>
                 <img className="CheckArrow" src={icon_plus_red}></img>
           </div>
@@ -97,7 +98,8 @@ export const CommunityActionCard=(props:Props)=>{
                  <span className="DescriptionHelpCommunity" style={{color: '#6D2C00'}}>{props.action.title}</span>
                 <span className="CounterActive">{pad(815,4)}</span>
                 <img className="ActionCardIcon" src={icon_behavior}></img>
-                <div className="ButtonActive" onClick={() => {
+                <div className="ButtonActive" style={{display:props.onChange?"block":"none"}} onClick={() => {
+                    // @ts-ignore
                     props.onChange("1");
                 }}>
                 <span style={{marginLeft: '16px'}}>HINZUFÜGEN</span>
@@ -117,7 +119,8 @@ export const CommunityActionCard=(props:Props)=>{
                 <span className="DescriptionHelpCommunity" style={{color: '#00565E'}}>{props.action.title}</span>
                 <span className="CounterHealth">{pad(815,4)}</span>
                 <img className="ActionCardIcon" src={icon_hygiene}></img>
-                <div className="ButtonHealth" style={{zIndex:1000}} onClick={() => {
+                <div className="ButtonHealth"  style={{display:props.onChange?"block":"none"}} onClick={() => {
+                    // @ts-ignore
                     props.onChange("1");
                 }}>
                     <span style={{marginLeft: '16px'}}>HINZUFÜGEN</span>

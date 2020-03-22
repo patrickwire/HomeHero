@@ -1,8 +1,9 @@
 export interface Action{
-    name:string;
+    title:string;
     amount:number;
     lastAdded:string;
-    category:string;
+    type:string;
+    points:number;
 }
 
 export interface UserData{
