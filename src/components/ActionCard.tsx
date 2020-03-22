@@ -25,6 +25,7 @@ interface Props {
 }
 
 function pad(number: any, length: any) {
+    if(!number) number = 0;
     var str = '' + number;
     while (str.length < length) {
         str = '0' + str;
