@@ -13,11 +13,14 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
  
   handleUpload = (image:any) => {
    
-    
+    const timestamp=""+Date.now()
+  
     console.log(image)
     if(image!==null){
         /// @ts-ignore
-        const uploadTask = storage().ref(`images/${image.name}`).put(image);
+        const uploadTask = storage().ref(`images/${timestamp+image.name}`).put(image);
+       console.log(timestamp+image.name);
+        
     uploadTask.on(
       "state_changed",
       snapshot => {
@@ -37,7 +40,7 @@ class ImageUpload extends Component<{onChange:(url:string)=>void}> {
         storage()
           .ref("images")
           // @ts-ignore
-          .child(image.name)
+          .child(timestamp+image.name)
           .getDownloadURL()
           .then(url => {
             this.setState({ url });
