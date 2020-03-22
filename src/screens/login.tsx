@@ -14,8 +14,13 @@ export const Login = (props: Props) => {
   const onLogin = () => {
     try {
       auth().setPersistence(auth.Auth.Persistence.LOCAL);
-      const result = auth().signInWithEmailAndPassword(email, password);
-      history.push("/");
+      auth().signInWithEmailAndPassword(email, password).then(()=>{
+        history.push("/")
+      })
+        .catch((error)=>{
+          alert(error.code);
+        });
+      
     } catch (error) {
       alert("wrong login");
     }
