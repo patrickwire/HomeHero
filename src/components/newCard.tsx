@@ -62,7 +62,7 @@ export const NewCard=(props:Props)=>{
                 id="outlined-basic"
                 label="Deine Idee"
                 multiline={true}
-                inputProps={{ maxLength: 80 }}
+                inputProps={{ maxLength: 50 }}
                 type="text"
                 fullWidth
                 onChange={e => setTitle(e.target.value)}
