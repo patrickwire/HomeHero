@@ -47,7 +47,7 @@ export const Register = () => {
         label="username"
         error={username.length>0&&password.length<3}
         onChange={e => setUsername(e.target.value)}
-        helperText={username.length<3&&"Passwort zu kurz"}
+        helperText={username.length<3&&"Username zu kurz"}
         value={username}
       /> <br /> <br />
        <TextField
