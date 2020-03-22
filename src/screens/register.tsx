@@ -78,7 +78,7 @@ export const Register = () => {
       <div className="RegisterLink">
         <Link className="Link" to="/login">Back to Login</Link>
       </div>
-
+      <br />  <br />  <br />  <br />  <br />  <br /> 
     </div>
   );
 };
