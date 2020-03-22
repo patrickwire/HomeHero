@@ -139,7 +139,7 @@ const unauthUserRouter=()=>{
 }
 
 function About() {
-  return <h2>About</h2>;
+  return (<div><h2>About</h2>Heldenzeit ist eine App, die dir dabei hilft, deine Zeit zu Hause aktiv und kreativ zu gestalten. Wir zeigen dir, wie du auch in dieser herausfordernden Zeit dein eigenes und das Wohlbefinden deiner Mitmenschen steigern kannst. Nur weil du zu Hause bleiben musst, heißt es noch lange nicht, dass dir die Decke auf den Kopf fallen muss! Lasse dich von den drei Hauptkategorien: active - help - health inspirieren und baue neue Ideen/gute Taten/Beschäftigungen in deine Alltagsgestaltung ein. Damit deine Heldentaten nicht einfach unbemerkt bleiben, sammelst du für das Erledigen deiner Aufgaben Punkte. Je nachdem wie heldenhaft deine Tat ist, steigt dabei die zu gewinnende Punkteanzahl.					</div>);
 }
 
 export default App;
