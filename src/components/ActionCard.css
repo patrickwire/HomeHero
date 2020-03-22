@@ -321,8 +321,9 @@
     /* Sketch doesnt export pattern fills at this point */
     border: 2px solid;
     border-radius: 59px;
-    max-width: 80px;
-    max-height: 80px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     position: absolute;
     left: 20px;
     top: -15px;
