@@ -58,14 +58,16 @@ export const NewCard=(props:Props)=>{
               Beschreibe deine Idee in einem Satz
           </DialogContentText>
             <TextField
+                error={title.length<3}
                 id="outlined-basic"
                 label="Deine Idee"
                 multiline={true}
-                inputProps={{ maxLength: 80 }}
+                inputProps={{ maxLength: 50 }}
                 type="text"
                 fullWidth
                 onChange={e => setTitle(e.target.value)}
                 value={title}
+                helperText={title.length<3&&"Titel zu kurz"}
             />
             <FormControl style={{paddingTop: '10px'}} component="fieldset">
                 <RadioGroup color="secondary" aria-label="gender" name="gender1" value={type} onChange={e => setType(e.target.value)}>
@@ -77,7 +79,7 @@ export const NewCard=(props:Props)=>{
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={saveAction} color="primary">
+          <Button disabled={title.length<3} onClick={saveAction} color="primary">
             Speichern
           </Button>
         </DialogActions>
