@@ -25,6 +25,7 @@ export const Home = () => {
   const [avatar, setAvatar] = useState("");
   const [actions, setAction] = useState([]);
   const [importantActions, setimportantActions] = useState([]);
+  const [communityActions, setCommunityActions] = useState([]);
   const [stars, setStars] = useState(0);
   const [active, setActive] = useState(0);
   const [help, setHelp] = useState(0);
@@ -44,10 +45,14 @@ export const Home = () => {
 
  //@ts-ignore
  const renderCommunityActions=(actions:Action[]):JSX.Element[]=>{
-  return actionsData.map((action,idx)=>
+  return actions.map((action,idx)=>
   <div key={idx}>
         <CommunityActionCard action={action} 
-        onChange={value=> addTask(action)}/>
+        onChange={value=> {
+          addTask(action, 0);
+          delete communityActions[idx];
+        }
+          }/>
     </div>)
  }
 
@@ -56,7 +61,7 @@ export const Home = () => {
   const updateTask = (taskid: any, type: string) => {
     // If important actions add it to the users Actions List
     if (type == 'important') {
-      addTask(importantActions[taskid]);
+      addTask(importantActions[taskid], 1);
       delete importantActions[taskid];
       return;
     }
@@ -75,11 +80,11 @@ export const Home = () => {
     setAction(newActions);
   }
 
-  const addTask = (action: any) => {
+  const addTask = (action: any, amount: number) => {
     const newaction={
       type: action.type,
       title: action.title,
-      amount: 1,
+      amount: amount,
       points: action.points,
       date: moment().toISOString()
     }
@@ -111,6 +116,12 @@ export const Home = () => {
             setimportantActions(data.actions?notDoneImportant:important);
             // @ts-ignore
             setAction(data.actions||[]);
+
+            //Community Actions
+            // @ts-ignore
+            const community = data.actions?actionsData.filter(e=>data.actions.filter(a=>e.title==a.title).length==0):[]
+            // @ts-ignore
+            setCommunityActions(community);
           }
         });
         firestore()
@@ -156,21 +167,20 @@ export const Home = () => {
           {renderActions(actions, 'user')}
           {renderActions(importantActions, 'important')}
 
-          <Button
+        <div>
+          <div className="UsersWorldwide">{amountUsers+596} BENUTZER WELTWEIT</div>
+          <div className="CommunityIdeas">COMMUNITY IDEEN</div>
+          {renderCommunityActions(communityActions)}
+        </div>
+        </div>
+    </div>
+  );
+};
+
+/**
+ *           <Button
             onClick={() => {
               console.log('TODO: Adding new Task');
             }}
           >NEUER TASK</Button>
-
-        <div>
-          <div className="UsersWorldwide">{amountUsers} BENUTZER WELTWEIT</div>
-          <div className="CommunityIdeas">COMMUNITY IDEEN</div>
-          {renderCommunityActions(actionsData)}
-        </div>
-        </div>
-
-
-
-    </div>
-  );
-};
+ */

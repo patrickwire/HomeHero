@@ -25,13 +25,13 @@ export const ResetPassword = (props: Props) => {
   if (send) {
     return (
       <div>
-        <h1>Reset Password</h1>check your mail
+        <h1>Zurücksetzen</h1>E-Mail gesendet
       </div>
     );
   }
   return (
     <div>
-      <h1>Reset Password</h1>
+      <h1>Zurücksetzen</h1>
 
       <TextField
         id="outlined-basic"
@@ -43,11 +43,11 @@ export const ResetPassword = (props: Props) => {
         value={email}
      /> <br /> <br />
       <Button variant="contained" color="primary" onClick={onResetPassword}>
-        Reset Password
+        Zurück zu Login
       </Button>
         <br />
       <div className="RegisterLink">
-        <Link className="Link" to="/login">Back to Login</Link>
+        <Link className="Link" to="/login">Zurück zu Login</Link>
       </div>
     </div>
   );
