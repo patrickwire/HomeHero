@@ -36,7 +36,7 @@ export const Register = () => {
   };
   return (
     <div>
-      <h1>Register</h1>
+      <h1>Registrieren</h1>
       <ImageUpload onChange={(url)=>setAvatar(url)}/>
       <TextField
        
@@ -73,10 +73,10 @@ export const Register = () => {
       
       <br/>
       <br/>
-      <Button disabled={!agb||password.length<6||email.length<6||username.length<3}  variant="contained" color="primary"  onClick={onRegister}>Register</Button>
+      <Button disabled={!agb||password.length<6||email.length<6||username.length<3}  variant="contained" color="primary"  onClick={onRegister}>Registrieren</Button>
       <br />
       <div className="RegisterLink">
-        <Link className="Link" to="/login">Back to Login</Link>
+        <Link className="Link" to="/login">Zurück zu Login</Link>
       </div>
 
     </div>
