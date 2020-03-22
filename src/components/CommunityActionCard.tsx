@@ -66,9 +66,7 @@ export const CommunityActionCard=(props:Props)=>{
         }
       }, [props]);
     
-        if(props.action.type == 'help'){
-            console.log(props.action);
-            
+        if(props.action.type == 'help'){            
         return(
         <div style={{marginTop: '20px'}} className="ActionCardHelp">
             <span className="PointsHelp">{props.action.points}</span>

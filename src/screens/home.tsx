@@ -24,6 +24,7 @@ export const Home = () => {
   const [username, setUsername] = useState("");
   const [avatar, setAvatar] = useState("");
   const [actions, setAction] = useState([]);
+  const [importantActions, setimportantActions] = useState([]);
   const [stars, setStars] = useState(0);
   const [active, setActive] = useState(0);
   const [help, setHelp] = useState(0);
@@ -31,12 +32,12 @@ export const Home = () => {
   const [amountUsers, setAmountUsers] = useState(0);
 
 // @ts-ignore
- const renderActions=(actions:Action[]):JSX.Element[]=>{
+ const renderActions=(actions:Action[], type: string):JSX.Element[]=>{
   return actions.map((action,idx)=>
   <div key={idx}>
-    <ActionCard    type={action.type} title={action.title} counter={action.amount} points={action.points}      
+    <ActionCard    type={action.type} title={action.title} counter={action.amount || 0} points={action.points}      
     onChange={value=>
-              updateTask(idx)
+              updateTask(idx, type)
             } />
     </div>)
  }
@@ -52,7 +53,15 @@ export const Home = () => {
 
   const userAuth = useContext(AuthContext);
 
-  const updateTask = (taskid: any) => {
+  const updateTask = (taskid: any, type: string) => {
+    // If important actions add it to the users Actions List
+    if (type == 'important') {
+      addTask(importantActions[taskid]);
+      delete importantActions[taskid];
+      return;
+    }
+
+    // Else Update the existing action
     let newActions = [...actions];
     //@ts-ignore
     newActions[taskid]['amount'] += 1;
@@ -83,6 +92,7 @@ export const Home = () => {
       // @ts-ignore
       setAction([...actions,newaction])
   };
+
   useEffect(() => {
     if (userAuth.uid) {
       firestore()
@@ -94,10 +104,13 @@ export const Home = () => {
             const data = snapshot.data() as UserData;
             setUsername(data.username.toUpperCase());
             setAvatar(data.avatar);
+            const important = actionsData.filter(a => a.important==1);
+            // @ts-ignore
+            const notDoneImportant=data.actions?important.filter(e=>data.actions.filter(a=>e.title==a.title).length==0):[]
+            // @ts-ignore
+            setimportantActions(data.actions?notDoneImportant:important);
             // @ts-ignore
             setAction(data.actions||[]);
-            // @ts-ignore
-          
           }
         });
         firestore()
@@ -140,7 +153,9 @@ export const Home = () => {
 
         <div className="TaskList">
 
-          {renderActions(actions)}
+          {renderActions(actions, 'user')}
+          {renderActions(importantActions, 'important')}
+
           <Button
             onClick={() => {
               console.log('TODO: Adding new Task');
