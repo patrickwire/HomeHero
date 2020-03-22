@@ -57,6 +57,7 @@ export const Home = () => {
     // If important actions add it to the users Actions List
     if (type == 'important') {
       addTask(importantActions[taskid]);
+      delete importantActions[taskid];
       return;
     }
 
@@ -91,6 +92,7 @@ export const Home = () => {
       // @ts-ignore
       setAction([...actions,newaction])
   };
+
   useEffect(() => {
     if (userAuth.uid) {
       firestore()
@@ -104,10 +106,9 @@ export const Home = () => {
             setAvatar(data.avatar);
             const important = actionsData.filter(a => a.important==1);
             // @ts-ignore
-            const notDoneImportant=important.filter(e=>data.actions.filter(a=>e.title==a.title).length==0)
-            
+            const notDoneImportant=data.actions?important.filter(e=>data.actions.filter(a=>e.title==a.title).length==0):[]
             // @ts-ignore
-            setimportantActions(notDoneImportant);
+            setimportantActions(data.actions?notDoneImportant:important);
             // @ts-ignore
             setAction(data.actions||[]);
           }
